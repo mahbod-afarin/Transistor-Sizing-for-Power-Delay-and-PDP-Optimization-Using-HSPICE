@@ -1,0 +1,17 @@
+pnlAddPane();
+nil
+1
+designOpen("c:\\users\\mahbod\\desktop\\part3\\sample.sp");
+"D0"
+t
+pnlAddCurve(1, node(D0,"A0","pdp"), node(D0,"A0","w"));
+nil
+pnlUnselectPane(1, 0);
+nil
+pnlSelectPane(1);
+nil
+quit();
+exit
+pnlDeletePane(1, 1);
+nil
+nil

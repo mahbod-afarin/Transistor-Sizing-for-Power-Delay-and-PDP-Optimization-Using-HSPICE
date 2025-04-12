@@ -1,0 +1,27 @@
+***** HSPICE -- A-2008.03 32-BIT (Feb 26 2008) winnt ******
+ Input File: c:\users\mahbod\desktop\part3\sample.sp
+ lic:
+ lic: FLEXlm: v8.5b
+ lic: USER:   mahbod               HOSTNAME: mahbod-PC
+ lic: HOSTID: "b2004ec1078e 00ffe1529411 00ffd3964207 90004ec1078e f0bf97607ec5
+ lic: Using FLEXlm license file:
+ lic: C:\Flexlm\Hspice_2007-09.lic
+ lic: Checkout 1 hspice
+ lic: License/Maintenance for hspice will expire on 31-dec-2020/2007.9
+ lic: NODE LOCKED license on hostid "b2004ec1078e 00ffe1529411 00ffd3964207 9000
+ lic:
+ Init: hspice initialization file: C:\synopsys\Hspice_A-2008.03\hspice.ini
+ init: begin read circuit files,  cpu clock=  4.80E-02
+       option post
+       option nomod
+       option measdg   =     6.00
+ init: end read circuit files,  cpu clock=  5.90E-02 memory=    282 kb
+ init: begin check errors,  cpu clock=  5.90E-02
+ init: end check errors,  cpu clock=  6.20E-02 memory=    293 kb
+ init: begin setup matrix, pivot=    10 cpu clock=  6.20E-02
+       establish matrix -- done,  cpu clock=  7.00E-02 memory=    297 kb
+       re-order matrix -- done,  cpu clock=  7.20E-02 memory=    298 kb
+ init: end setup matrix,  cpu clock=  7.40E-02 memory=    329 kb
+>info:         ***** hspice job concluded
+ Init: hspice initialization file: C:\synopsys\Hspice_A-2008.03\hspice.ini
+ lic: Release hspice token(s)

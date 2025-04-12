@@ -1,0 +1,364 @@
+ ****** HSPICE -- A-2008.03 32-BIT (Feb 26 2008) winnt ******                   
+  Copyright (C) 2008 Synopsys, Inc. All Rights Reserved.                        
+  Unpublished-rights reserved under US copyright laws.
+  This program is protected by law and is subject to the 
+  terms and conditions of the license agreement found in:
+    C:\synopsys\Hspice_A-2008.03\license.warn
+  Use of this program is your acceptance to be bound by this 
+  license agreement. HSPICE is the trademark of Synopsys, Inc.
+  Input File: c:\users\mahbod\desktop\part3\sample.sp                           
+ Init: read install configuration file: C:\synopsys\Hspice_A-2008.03\meta.cfg
+ Init: hspice initialization file: C:\synopsys\Hspice_A-2008.03\hspice.ini
+
+
+
+
+
+ .option  post
+ .option nomod
+ .option  measdgt=6
+ .temp  27
+ .param  vdd=1.8v  pulsew=10n  delay=10p  loadc=1f  lentran='13*pulsew'
+
+ ***************************************************************************************
+ ***************************************************************************************
+ **********************************  transitions  **************************************
+ ***************************************************************************************
+ ***************************************************************************************
+
+ *.tran  10p  lentran  sweep  vdd    0.8v  2.4v  0.4v
+ *.tran  10p  lentran  sweep  vdd    0.8v   2.4v  0.05v
+ *.tran  10p  lentran  
+ *.tran  10p  lentran  sweep  w   0.13u    0.28u   0.001u
+ *.tran  10p  lentran   sweep   k7    0.26    1.5    0.02
+ ***************************************************************************************
+ ***************************************************************************************
+ *******************************  transistor sizing  ***********************************
+ ***************************************************************************************
+ ***************************************************************************************
+
+ .param  lmin=0.13u  wmin=0.13u
+ .param  k1=1 	k2=1 	k3=1 	k4=1 	k5=1 	k6=1      k7=1	 k8=1
+
+ .param  wp_l1='lmin*5'    wn_l1='lmin*3'
+ .param  wp_l2='lmin*12'   wn_l2='lmin*5'
+
+
+ ***************************************************************************************
+ ***************************************************************************************
+
+ vdd  vdd  0  vdd
+ .global  vdd  0
+
+ ***************************************************************************************
+ ***************************************************************************************
+
+ .include 'pmos-13u.lib'
+ .model pmos pmos
+ +level = 49
+
+ +lint = 2.e-08 tox = 3.3e-09 
+ +vth0 = -0.3499 rdsw = 400 
+
+ +lmin=1.3e-7 lmax=1.3e-7 wmin=1.3e-7 wmax=1.0e-4 tref=27.0 version =3.1
+ +xj= 4.5000000e-08         nch= 6.8500000e+18 
+ +lln= 0.00                 lwn= 0.00                  wln= 0.00
+ +wwn= 0.00                 ll= 0.00
+ +lw= 0.00                  lwl= 0.00                  wint= 0.00
+ +wl= 0.00                  ww= 0.00                   wwl= 0.00
+ +mobmod=  1                binunit= 2                 xl=  0
+ +xw=  0                    binflag=  0
+ +dwg= 0.00                 dwb= 0.00 
+
+ +k1= 0.4087000             k2= 0.00 
+ +k3= 0.00                  dvt0= 5.0000000            dvt1= 0.2600000 
+ +dvt2= -1.0000000e-02      dvt0w= 0.00                dvt1w= 0.00 
+ +dvt2w= 0.00               nlx= 1.6500000e-07         w0= 0.00 
+ +k3b= 0.00                 ngate= 5.0000000e+20 
+
+ +vsat= 1.0500000e+05       ua= -1.4000000e-09         ub= 1.9499999e-18 
+ +uc= -2.9999999e-11        prwb= 0.00 
+ +prwg= 0.00                wr= 1.0000000              u0= 5.2000000e-03 
+ +a0= 2.1199999             keta= 3.0300001e-02        a1= 0.00 
+ +a2= 0.4000000             ags= 0.1000000             b0= 0.00 
+ +b1= 0.00 
+
+ +voff= -9.10000000e-02     nfactor= 0.1250000         cit= 2.7999999e-03 
+ +cdsc= 0.00                cdscb= 0.00                cdscd= 0.00 
+ +eta0= 80.0000000          etab= 0.00                 dsub= 1.8500000 
+
+ +pclm= 2.5000000           pdiblc1= 4.8000000e-02     pdiblc2= 5.0000000e-05 
+ +pdiblcb= 0.1432509        drout= 9.0000000e-02       pscbe1= 1.0000000e-20 
+ +pscbe2= 1.0000000e-20     pvag= -6.0000000e-02       delta= 1.0100000e-02 
+ +alpha0= 0.00              beta0= 30.0000000 
+
+ +kt1= -0.3400000           kt2= -5.2700000e-02        at= 0.00 
+ +ute= -1.2300000           ua1= -8.6300000e-10        ub1= 2.0000001e-18 
+ +uc1= 0.00                 kt1l= 4.0000000e-09        prt= 0.00 
+
+ +cj= 0.0015                mj= 0.7175511              pb= 1.24859
+ +cjsw= 2e-10               mjsw= 0.3706993            php= 0.7731149
+ +cta= 9.290391e-04         ctp= 7.456211e-04          pta= 1.527748e-03
+ +ptp= 1.56325e-03          js=2.50e-08               jsw=4.00e-13
+ +n=1.0                     xti=3.0                   cgdo=2.75e-10
+ +cgso=2.75e-10             cgbo=0.0e+00              capmod= 2
+ +nqsmod= 0                 elm= 5                    xpart= 1
+ +cgsl= 1.1155e-10          cgdl= 1.1155e-10          ckappa= 0.8912
+ +cf= 1.113e-10             clc= 5.475e-08            cle= 6.46
+  **warning** (pmos-13u.lib:7)  model pmos            device geometries will not be checked against the limits set bylmin, lmax, wmin and wmax. To enable this check, add a period(.)to the model name(i.e. enable model selector).
+ .include 'nmos-13u.lib' *set 0.13um library
+ .model nmos nmos
+ +level = 49
+
+ +lint = 2.5e-08 tox = 3.3e-09 
+ +vth0 = 0.332 rdsw = 200 
+
+ +lmin=1.3e-7 lmax=1.3e-7 wmin=1.3e-7 wmax=1.0e-4 tref=27.0 version =3.1
+ +xj= 4.5000000e-08          nch= 5.6000000e+17 
+ +lln= 1.0000000            lwn= 0.00                  wln= 0.00
+ +wwn= 1.0000000            ll= 0.00
+ +lw= 0.00                  lwl= 0.00                  wint= 0.00
+ +wl= 0.00                  ww= 0.00                   wwl= 0.00
+ +mobmod= 1                 binunit= 2                 xl= 0
+ +xw= 0                     binflag=  0
+ +dwg= 0.00                 dwb= 0.00 
+
+ +k1= 0.3661500              k2= 0.00 
+ +k3= 0.00                  dvt0= 8.7500000            dvt1= 0.7000000 
+ +dvt2= 5.0000000e-02       dvt0w= 0.00                dvt1w= 0.00 
+ +dvt2w= 0.00               nlx= 3.5500000e-07         w0= 0.00 
+ +k3b= 0.00                 ngate= 5.0000000e+20 
+
+ +vsat= 1.3500000e+05       ua= -1.8000000e-09         ub= 2.2000000e-18 
+ +uc= -2.9999999e-11        prwb= 0.00 
+ +prwg= 0.00                wr= 1.0000000              u0= 1.3400000e-02 
+ +a0= 2.1199999             keta= 4.0000000e-02        a1= 0.00 
+ +a2= 0.9900000             ags= -0.1000000            b0= 0.00 
+ +b1= 0.00 
+
+ +voff= -7.9800000e-02      nfactor= 1.1000000         cit= 0.00 
+ +cdsc= 0.00                cdscb= 0.00                cdscd= 0.00 
+ +eta0= 4.0000000e-02       etab= 0.00                 dsub= 0.5200000 
+
+ +pclm= 0.1000000           pdiblc1= 1.2000000e-02     pdiblc2= 7.5000000e-03 
+ +pdiblcb= -1.3500000e-02   drout= 0.2800000           pscbe1= 8.6600000e+08 
+ +pscbe2= 1.0000000e-20     pvag= -0.2800000           delta= 1.0100000e-02 
+ +alpha0= 0.00              beta0= 30.0000000 
+
+ +kt1= -0.3400000           kt2= -5.2700000e-02        at= 0.00 
+ +ute= -1.2300000           ua1= -8.6300000e-10        ub1= 2.0000001e-18 
+ +uc1= 0.00                 kt1l= 4.0000000e-09        prt= 0.00 
+
+ +cj= 0.0015                mj= 0.7175511              pb= 1.24859
+ +cjsw= 2e-10               mjsw= 0.3706993            php= 0.7731149
+ +cta= 9.290391e-04         ctp= 7.456211e-04          pta= 1.527748e-03
+ +ptp= 1.56325e-03          js=2.50e-08                jsw=4.00e-13
+ +n=1.0                     xti=3.0                    cgdo=2.75e-10
+ +cgso=2.75e-10             cgbo=0.0e+00               capmod= 2
+ +nqsmod= 0                 elm= 5                     xpart= 1
+ +cgsl= 1.1155e-10          cgdl= 1.1155e-10           ckappa= 0.8912
+ +cf= 1.113e-10             clc= 5.475e-08             cle= 6.46
+  **warning** (nmos-13u.lib:7)  model nmos            device geometries will not be checked against the limits set bylmin, lmax, wmin and wmax. To enable this check, add a period(.)to the model name(i.e. enable model selector).
+
+ ***************************************************************************************
+ ***************************************************************************************
+ ******************************  2-input pulse transitions  ****************************
+ ***************************************************************************************
+ ***************************************************************************************
+
+ va a_in 0 pwl (0p 0v, '2*pulsew' 0v, '2*pulsew+delay' vdd, '5*pulsew' vdd, '5*pulsew+delay' 0v, '7*pulsew' 0v, '7*pulsew+delay' vdd, '8*pulsew' vdd, '8*pulsew+delay' 0v, '9*pulsew' 0v, '9*pulsew+delay' vdd, '10*pulsew' vdd, '10*pulsew+delay' 0v, '11*pulsew' 0v, '11*pulsew+delay' vdd, '12*pulsew' vdd, '12*pulsew+delay' 0v)
+
+ van an_in 0 pwl (0p vdd, '2*pulsew' vdd, '2*pulsew+delay' 0v, '5*pulsew' 0v, '5*pulsew+delay' vdd, '7*pulsew' vdd, '7*pulsew+delay' 0v, '8*pulsew' 0v, '8*pulsew+delay' vdd, '9*pulsew' vdd, '9*pulsew+delay' 0v, '10*pulsew' 0v, '10*pulsew+delay' vdd, '11*pulsew' vdd, '11*pulsew+delay' 0v, '12*pulsew' 0v, '12*pulsew+delay' vdd)
+
+ vb b_in 0 pwl (0p 0v, '1*pulsew' 0v, '1*pulsew+delay' vdd, '3*pulsew' vdd, '3*pulsew+delay' 0v, '4*pulsew' 0v, '4*pulsew+delay' vdd, '6*pulsew' vdd, '6*pulsew+delay' 0v, '7*pulsew' 0v, '7*pulsew+delay' vdd, '8*pulsew' vdd, '8*pulsew+delay' 0v, '10*pulsew' 0v, '10*pulsew+delay' vdd, '11*pulsew' vdd, '11*pulsew+delay' 0v)
+
+ ***************************************************************************************
+ ***************************************************************************************
+ **********************************  input buffers  ************************************
+ ***************************************************************************************
+ ***************************************************************************************
+
+ ma_inbuff_p1	a_n	  a_in	  vdd 	 vdd	pmos		w=wp_l1		 l=lmin
+ ma_inbuff_n1	a_n	  a_in	  0   	 0	nmos  		w=wn_l1 	 l=lmin
+ ma_inbuff_p2	a	  a_n	  vdd	 vdd	pmos		w=wp_l2 	 l=lmin
+ ma_inbuff_n2	a	  a_n	  0	 0	nmos		w=wp_l2 	 l=lmin
+
+ man_inbuff_p1	an_n	  an_in	  vdd 	 vdd	pmos		w=wp_l1		 l=lmin
+ man_inbuff_n1	an_n	  an_in	  0   	 0	nmos  		w=wn_l1 	 l=lmin
+ man_inbuff_p2	an	  an_n	  vdd	 vdd	pmos		w=wp_l2 	 l=lmin
+ man_inbuff_n2	an	  an_n	  0	 0	nmos		w=wp_l2 	 l=lmin
+
+ mb_inbuff-p1	b_n	  b_in	  vdd 	 vdd	pmos	        w=wp_l1		 l=lmin
+ mb_inbuff-n1	b_n	  b_in	  0   	 0	nmos  		w=wn_l1 	 l=lmin
+ mb_inbuff-p2	b	  b_n	  vdd	 vdd	pmos		w=wp_l2 	 l=lmin
+ mb_inbuff-n2	b	  b_n	  0	 0	nmos		w=wp_l2 	 l=lmin
+
+ ***************************************************************************************
+ ***************************************************************************************
+ ********************************** circuit design  ************************************
+ ***************************************************************************************
+ ***************************************************************************************
+
+ ***************************************************************************************
+ ***************************************************************************************
+ *********************************  pmos transistors  **********************************
+ ***************************************************************************************
+ ***************************************************************************************
+ mt1 y a b vdd pmos w=wmin l=0.13u
+ mt2 y b a vdd pmos w=wmin l=0.13u
+
+ mf2	vdd y yn vdd pmos w=wmin l=0.13u
+ ***************************************************************************************
+ ***************************************************************************************
+ *********************************  nmos transistors  **********************************
+ ***************************************************************************************
+ ***************************************************************************************
+ mt3 yn a b 0 nmos w=wmin l=0.13u
+ mt4 yn b a 0 nmos w=wmin l=0.13u
+
+ mf1	0 yn y 0 nmos w=wmin l=0.13u
+
+ ***************************************************************************************
+ ***************************************************************************************
+ *******************************  output buffers  **************************************
+ ***************************************************************************************
+ ***************************************************************************************
+
+ my_outbuff_p1  		xorb   	y   	vdd  	vdd	 pmos  w=wp_l1  l=lmin
+ my_outbuff_n1  		xorb   	y   	0    	0	 nmos  w=wn_l1  l=lmin
+ my_outbuff_p2  		xor    	xorb   	vdd  	vdd	 pmos  w=wp_l2  l=lmin
+ my_outbuff_n2 		xor    	xorb   	0    	0	 nmos  w=wn_l2  l=lmin
+
+ myn_outbuff_p1 	xnorb  	yn  	vdd  	vdd	 pmos  w=wp_l1  l=lmin
+ myn_outbuff_n1		xnorb  	yn  	0    	0	 nmos  w=wn_l1  l=lmin
+ myn_outbuff_p2		xnor   	xnorb  	vdd  	vdd	 pmos  w=wp_l2  l=lmin
+ myn_outbuff_n2		xnor   	xnorb  	0    	0	 nmos  w=wn_l2  l=lmin
+
+ ***************************************************************************************
+ ***************************************************************************************
+ *********************************  measurements  **************************************
+ ***************************************************************************************
+ ***************************************************************************************
+
+ .measure  tran  average_power  avg  power  from=0ns  to=lentran
+
+
+ ***************************************************************************************
+ ***************************************************************************************
+
+ .measure  tran  tda_f_xor1   trig  v(a)  val='vdd/2'  td=15n   rise=1  targ  v(y)   val='vdd/2'  fall=1
+ .measure  tran  tda_r_xor2   trig  v(a)  val='vdd/2'  td=45n   fall=1  targ  v(y)   val='vdd/2'  rise=1
+ .measure  tran  tda_r_xor3   trig  v(a)  val='vdd/2'  td=85n   rise=1  targ  v(y)   val='vdd/2'  rise=1
+ .measure  tran  tda_f_xor4   trig  v(a)  val='vdd/2'  td=115n  fall=1  targ  v(y)   val='vdd/2'  fall=1
+
+ ***************************************************************************************
+ ***************************************************************************************
+
+ .measure  tran  tda_xor1   param='max(tda_f_xor1,tda_r_xor2)'
+ .measure  tran  tda_xor2   param='max(tda_r_xor3,tda_f_xor4)'
+ .measure  tran  tda_xor    param='max(tda_xor1,tda_xor2)'
+
+ ***************************************************************************************
+ ***************************************************************************************
+
+ .measure  tran  tda_r_xnor1  trig  v(a)  val='vdd/2'  td=15n   rise=1  targ  v(yn)  val='vdd/2'  rise=1
+ .measure  tran  tda_f_xnor2  trig  v(a)  val='vdd/2'  td=45n   fall=1  targ  v(yn)  val='vdd/2'  fall=1
+ .measure  tran  tda_f_xnor3  trig  v(a)  val='vdd/2'  td=85n   rise=1  targ  v(yn)  val='vdd/2'  fall=1
+ .measure  tran  tda_r_xnor4  trig  v(a)  val='vdd/2'  td=115n  fall=1  targ  v(yn)  val='vdd/2'  rise=1
+
+ ***************************************************************************************
+ ***************************************************************************************
+
+ .measure  tran  tda_xnor1   param='max(tda_r_xnor1,tda_f_xnor2)'
+ .measure  tran  tda_xnor2   param='max(tda_f_xnor3,tda_r_xnor4)'
+ .measure  tran  tda_xnor    param='max(tda_xnor1,tda_xnor2)'
+
+ ***************************************************************************************
+ ***************************************************************************************
+
+ .measure  tran  tdb_r_xor1   trig  v(b)  val='vdd/2'  td=5n   rise=1  targ  v(y)   val='vdd/2'  rise=1
+ .measure  tran  tdb_r_xor2   trig  v(b)  val='vdd/2'  td=25n  fall=1  targ  v(y)   val='vdd/2'  rise=1
+ .measure  tran  tdb_f_xor3   trig  v(b)  val='vdd/2'  td=35n  rise=1  targ  v(y)   val='vdd/2'  fall=1
+ .measure  tran  tdb_f_xor4   trig  v(b)  val='vdd/2'  td=55n  fall=1  targ  v(y)   val='vdd/2'  fall=1
+
+ ***************************************************************************************
+ ***************************************************************************************
+
+ .measure  tran  tdb_xor1   param='max(tdb_r_xor1,tdb_r_xor2)'
+ .measure  tran  tdb_xor2   param='max(tdb_f_xor3,tdb_f_xor4)'
+ .measure  tran  tdb_xor    param='max(tdb_xor1,tdb_xor2)'
+
+ ***************************************************************************************
+ ***************************************************************************************
+
+ .measure  tran  tdb_f_xnor1  trig  v(b)  val='vdd/2'  td=5n   rise=1  targ  v(yn)  val='vdd/2'  fall=1
+ .measure  tran  tdb_f_xnor2  trig  v(b)  val='vdd/2'  td=25n  fall=1  targ  v(yn)  val='vdd/2'  fall=1
+ .measure  tran  tdb_r_xnor3  trig  v(b)  val='vdd/2'  td=35n  rise=1  targ  v(yn)  val='vdd/2'  rise=1
+ .measure  tran  tdb_r_xnor4  trig  v(b)  val='vdd/2'  td=55n  fall=1  targ  v(yn)  val='vdd/2'  rise=1
+
+ ***************************************************************************************
+ ***************************************************************************************
+
+ .measure  tran  tdb_xnor1   param='max(tdb_f_xnor1,tdb_f_xnor2)'
+ .measure  tran  tdb_xnor2   param='max(tdb_r_xnor3,tdb_r_xnor4)'
+ .measure  tran  tdb_xnor    param='max(tdb_xnor1,tdb_xnor2)'
+
+ ***************************************************************************************
+ ***************************************************************************************
+
+ .measure  tran  tda  param='max(tda_xor,tda_xnor)'
+ .measure  tran  tdb  param='max(tdb_xor,tdb_xnor)'
+ .measure  tran  td   param='max(tda,tdb)'
+ .measure  tran  pdp  param='td*average_power'
+ ***************************************************************************************
+ ***************************************************************************************
+
+ .end
+
+ **warning** dc voltage reset to initial transient source value
+             in source        0:va                  new dc=  0.0000D+00
+
+
+ **warning** dc voltage reset to initial transient source value
+             in source        0:van                 new dc=  0.1800D+01
+
+
+ **warning** dc voltage reset to initial transient source value
+             in source        0:vb                  new dc=  0.0000D+00
+
+ 
+
+ Warning: Pd = 0 is less than W.
+ Model:    0:pmos
+ W = 6.5e-007, L = 1.3e-007
+
+ 
+      
+
+          ***** job concluded
+1****** HSPICE -- A-2008.03 32-BIT (Feb 26 2008) winnt ******                   
+ ******  
+ title                                                                          
+  ******  job statistics summary           tnom=  25.000 temp=  27.000          
+ ******  
+
+           total memory used        329 kbytes
+
+  # nodes =      17 # elements=      30
+  # diodes=       0 # bjts    =       0 # jfets   =       0 # mosfets =      26
+  # va device =       0
+
+    analysis           time    # points   tot. iter  conv.iter
+
+    op point           0.00           1           0
+    readin             0.01
+    errchk             0.00
+    setup              0.01
+    output             0.00
+           total cpu time          0.04 seconds
+           total elapsed time         1 seconds
+               job started at  22:27:49 12/03/2015
+               job ended   at  22:27:49 12/03/2015
+
+
+ Init: hspice initialization file: C:\synopsys\Hspice_A-2008.03\hspice.ini

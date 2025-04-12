@@ -1,0 +1,13 @@
+pnlAddPane();
+nil
+1
+designOpen("c:\\users\\mahbod\\desktop\\part4\\sample.sp");
+"D0"
+t
+pnlAddCurve(1, node(D0,"A0","average_power"), node(D0,"A0","wmin"));
+nil
+quit();
+exit
+pnlDeletePane(1, 1);
+nil
+nil

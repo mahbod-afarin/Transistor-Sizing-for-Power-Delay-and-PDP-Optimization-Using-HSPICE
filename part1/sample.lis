@@ -1,0 +1,1481 @@
+ ****** HSPICE -- A-2008.03 32-BIT (Feb 26 2008) winnt ******                   
+  Copyright (C) 2008 Synopsys, Inc. All Rights Reserved.                        
+  Unpublished-rights reserved under US copyright laws.
+  This program is protected by law and is subject to the 
+  terms and conditions of the license agreement found in:
+    C:\synopsys\Hspice_A-2008.03\license.warn
+  Use of this program is your acceptance to be bound by this 
+  license agreement. HSPICE is the trademark of Synopsys, Inc.
+  Input File: c:\users\mahbod\desktop\part1\sample.sp                           
+ Init: read install configuration file: C:\synopsys\Hspice_A-2008.03\meta.cfg
+ Init: hspice initialization file: C:\synopsys\Hspice_A-2008.03\hspice.ini
+
+
+
+
+
+ .option  post
+ .option nomod
+ .option  measdgt=6
+ .temp  27
+ .param  vdd=1.8v  pulsew=10n  delay=10p  loadc=1f  lentran='13*pulsew'
+
+ ***************************************************************************************
+ ***************************************************************************************
+ **********************************  transitions  **************************************
+ ***************************************************************************************
+ ***************************************************************************************
+
+ *.tran  10p  lentran  sweep  vdd    0.8v  2.4v  0.4v
+ *.tran  10p  lentran  sweep  vdd    0.8v   2.4v  0.05v
+ *.tran  10p  lentran  
+ *.tran  10p  lentran  sweep  wmin 0.13u    0.25u   0.001u
+
+
+ .tran  10p  lentran   sweep   k1    2.5  2.7 0.01
+ *.tran  10p  lentran   sweep   k2    7.8  8  0.001
+ *.tran  10p  lentran   sweep   k3    1  1.5  0.01
+ *.tran  10p  lentran   sweep   k4    1.2  1.4  0.001
+ *.tran  10p  lentran   sweep   k5    0.5  1.5  0.01
+ *.tran  10p  lentran   sweep   k6    0.5  1.5  0.01
+ **************************************************************************************
+ ***************************************************************************************
+ *******************************  transistor sizing  ***********************************
+ ***************************************************************************************
+ ***************************************************************************************
+
+ .param  lmin=0.13u  wmin=0.13u
+ .param  k1=2.6950   	 k2=2.3990	    k3=1.3490      k4=1.6390     k5=1.1590	 k6=1.00 
+
+ .param  wp_l1='lmin*5'    wn_l1='lmin*3'
+ .param  wp_l2='lmin*12'   wn_l2='lmin*5'
+
+
+ ***************************************************************************************
+ ***************************************************************************************
+
+ vdd  vdd  0  vdd
+ .global  vdd  0
+
+ ***************************************************************************************
+ ***************************************************************************************
+
+ .include 'pmos-13u.lib'
+ .model pmos pmos
+ +level = 49
+
+ +lint = 2.e-08 tox = 3.3e-09 
+ +vth0 = -0.3499 rdsw = 400 
+
+ +lmin=1.3e-7 lmax=1.3e-7 wmin=1.3e-7 wmax=1.0e-4 tref=27.0 version =3.1
+ +xj= 4.5000000e-08         nch= 6.8500000e+18 
+ +lln= 0.00                 lwn= 0.00                  wln= 0.00
+ +wwn= 0.00                 ll= 0.00
+ +lw= 0.00                  lwl= 0.00                  wint= 0.00
+ +wl= 0.00                  ww= 0.00                   wwl= 0.00
+ +mobmod=  1                binunit= 2                 xl=  0
+ +xw=  0                    binflag=  0
+ +dwg= 0.00                 dwb= 0.00 
+
+ +k1= 0.4087000             k2= 0.00 
+ +k3= 0.00                  dvt0= 5.0000000            dvt1= 0.2600000 
+ +dvt2= -1.0000000e-02      dvt0w= 0.00                dvt1w= 0.00 
+ +dvt2w= 0.00               nlx= 1.6500000e-07         w0= 0.00 
+ +k3b= 0.00                 ngate= 5.0000000e+20 
+
+ +vsat= 1.0500000e+05       ua= -1.4000000e-09         ub= 1.9499999e-18 
+ +uc= -2.9999999e-11        prwb= 0.00 
+ +prwg= 0.00                wr= 1.0000000              u0= 5.2000000e-03 
+ +a0= 2.1199999             keta= 3.0300001e-02        a1= 0.00 
+ +a2= 0.4000000             ags= 0.1000000             b0= 0.00 
+ +b1= 0.00 
+
+ +voff= -9.10000000e-02     nfactor= 0.1250000         cit= 2.7999999e-03 
+ +cdsc= 0.00                cdscb= 0.00                cdscd= 0.00 
+ +eta0= 80.0000000          etab= 0.00                 dsub= 1.8500000 
+
+ +pclm= 2.5000000           pdiblc1= 4.8000000e-02     pdiblc2= 5.0000000e-05 
+ +pdiblcb= 0.1432509        drout= 9.0000000e-02       pscbe1= 1.0000000e-20 
+ +pscbe2= 1.0000000e-20     pvag= -6.0000000e-02       delta= 1.0100000e-02 
+ +alpha0= 0.00              beta0= 30.0000000 
+
+ +kt1= -0.3400000           kt2= -5.2700000e-02        at= 0.00 
+ +ute= -1.2300000           ua1= -8.6300000e-10        ub1= 2.0000001e-18 
+ +uc1= 0.00                 kt1l= 4.0000000e-09        prt= 0.00 
+
+ +cj= 0.0015                mj= 0.7175511              pb= 1.24859
+ +cjsw= 2e-10               mjsw= 0.3706993            php= 0.7731149
+ +cta= 9.290391e-04         ctp= 7.456211e-04          pta= 1.527748e-03
+ +ptp= 1.56325e-03          js=2.50e-08               jsw=4.00e-13
+ +n=1.0                     xti=3.0                   cgdo=2.75e-10
+ +cgso=2.75e-10             cgbo=0.0e+00              capmod= 2
+ +nqsmod= 0                 elm= 5                    xpart= 1
+ +cgsl= 1.1155e-10          cgdl= 1.1155e-10          ckappa= 0.8912
+ +cf= 1.113e-10             clc= 5.475e-08            cle= 6.46
+  **warning** (pmos-13u.lib:7)  model pmos            device geometries will not be checked against the limits set bylmin, lmax, wmin and wmax. To enable this check, add a period(.)to the model name(i.e. enable model selector).
+ .include 'nmos-13u.lib' *set 0.13um library
+ .model nmos nmos
+ +level = 49
+
+ +lint = 2.5e-08 tox = 3.3e-09 
+ +vth0 = 0.332 rdsw = 200 
+
+ +lmin=1.3e-7 lmax=1.3e-7 wmin=1.3e-7 wmax=1.0e-4 tref=27.0 version =3.1
+ +xj= 4.5000000e-08          nch= 5.6000000e+17 
+ +lln= 1.0000000            lwn= 0.00                  wln= 0.00
+ +wwn= 1.0000000            ll= 0.00
+ +lw= 0.00                  lwl= 0.00                  wint= 0.00
+ +wl= 0.00                  ww= 0.00                   wwl= 0.00
+ +mobmod= 1                 binunit= 2                 xl= 0
+ +xw= 0                     binflag=  0
+ +dwg= 0.00                 dwb= 0.00 
+
+ +k1= 0.3661500              k2= 0.00 
+ +k3= 0.00                  dvt0= 8.7500000            dvt1= 0.7000000 
+ +dvt2= 5.0000000e-02       dvt0w= 0.00                dvt1w= 0.00 
+ +dvt2w= 0.00               nlx= 3.5500000e-07         w0= 0.00 
+ +k3b= 0.00                 ngate= 5.0000000e+20 
+
+ +vsat= 1.3500000e+05       ua= -1.8000000e-09         ub= 2.2000000e-18 
+ +uc= -2.9999999e-11        prwb= 0.00 
+ +prwg= 0.00                wr= 1.0000000              u0= 1.3400000e-02 
+ +a0= 2.1199999             keta= 4.0000000e-02        a1= 0.00 
+ +a2= 0.9900000             ags= -0.1000000            b0= 0.00 
+ +b1= 0.00 
+
+ +voff= -7.9800000e-02      nfactor= 1.1000000         cit= 0.00 
+ +cdsc= 0.00                cdscb= 0.00                cdscd= 0.00 
+ +eta0= 4.0000000e-02       etab= 0.00                 dsub= 0.5200000 
+
+ +pclm= 0.1000000           pdiblc1= 1.2000000e-02     pdiblc2= 7.5000000e-03 
+ +pdiblcb= -1.3500000e-02   drout= 0.2800000           pscbe1= 8.6600000e+08 
+ +pscbe2= 1.0000000e-20     pvag= -0.2800000           delta= 1.0100000e-02 
+ +alpha0= 0.00              beta0= 30.0000000 
+
+ +kt1= -0.3400000           kt2= -5.2700000e-02        at= 0.00 
+ +ute= -1.2300000           ua1= -8.6300000e-10        ub1= 2.0000001e-18 
+ +uc1= 0.00                 kt1l= 4.0000000e-09        prt= 0.00 
+
+ +cj= 0.0015                mj= 0.7175511              pb= 1.24859
+ +cjsw= 2e-10               mjsw= 0.3706993            php= 0.7731149
+ +cta= 9.290391e-04         ctp= 7.456211e-04          pta= 1.527748e-03
+ +ptp= 1.56325e-03          js=2.50e-08                jsw=4.00e-13
+ +n=1.0                     xti=3.0                    cgdo=2.75e-10
+ +cgso=2.75e-10             cgbo=0.0e+00               capmod= 2
+ +nqsmod= 0                 elm= 5                     xpart= 1
+ +cgsl= 1.1155e-10          cgdl= 1.1155e-10           ckappa= 0.8912
+ +cf= 1.113e-10             clc= 5.475e-08             cle= 6.46
+  **warning** (nmos-13u.lib:7)  model nmos            device geometries will not be checked against the limits set bylmin, lmax, wmin and wmax. To enable this check, add a period(.)to the model name(i.e. enable model selector).
+
+ ***************************************************************************************
+ ***************************************************************************************
+ ******************************  2-input pulse transitions  ****************************
+ ***************************************************************************************
+ ***************************************************************************************
+
+ va a_in 0 pwl (0p 0v, '2*pulsew' 0v, '2*pulsew+delay' vdd, '5*pulsew' vdd, '5*pulsew+delay' 0v, '7*pulsew' 0v, '7*pulsew+delay' vdd, '8*pulsew' vdd, '8*pulsew+delay' 0v, '9*pulsew' 0v, '9*pulsew+delay' vdd, '10*pulsew' vdd, '10*pulsew+delay' 0v, '11*pulsew' 0v, '11*pulsew+delay' vdd, '12*pulsew' vdd, '12*pulsew+delay' 0v)
+
+ van an_in 0 pwl (0p vdd, '2*pulsew' vdd, '2*pulsew+delay' 0v, '5*pulsew' 0v, '5*pulsew+delay' vdd, '7*pulsew' vdd, '7*pulsew+delay' 0v, '8*pulsew' 0v, '8*pulsew+delay' vdd, '9*pulsew' vdd, '9*pulsew+delay' 0v, '10*pulsew' 0v, '10*pulsew+delay' vdd, '11*pulsew' vdd, '11*pulsew+delay' 0v, '12*pulsew' 0v, '12*pulsew+delay' vdd)
+
+ vb b_in 0 pwl (0p 0v, '1*pulsew' 0v, '1*pulsew+delay' vdd, '3*pulsew' vdd, '3*pulsew+delay' 0v, '4*pulsew' 0v, '4*pulsew+delay' vdd, '6*pulsew' vdd, '6*pulsew+delay' 0v, '7*pulsew' 0v, '7*pulsew+delay' vdd, '8*pulsew' vdd, '8*pulsew+delay' 0v, '10*pulsew' 0v, '10*pulsew+delay' vdd, '11*pulsew' vdd, '11*pulsew+delay' 0v)
+
+ ***************************************************************************************
+ ***************************************************************************************
+ **********************************  input buffers  ************************************
+ ***************************************************************************************
+ ***************************************************************************************
+
+ ma_inbuff_p1	a_n	  a_in	  vdd 	 vdd	pmos		w=wp_l1		 l=lmin
+ ma_inbuff_n1	a_n	  a_in	  0   	 0	nmos  		w=wn_l1 	 l=lmin
+ ma_inbuff_p2	a	  a_n	  vdd	 vdd	pmos		w=wp_l2 	 l=lmin
+ ma_inbuff_n2	a	  a_n	  0	 0	nmos		w=wp_l2 	 l=lmin
+
+ man_inbuff_p1	an_n	  an_in	  vdd 	 vdd	pmos		w=wp_l1		 l=lmin
+ man_inbuff_n1	an_n	  an_in	  0   	 0	nmos  		w=wn_l1 	 l=lmin
+ man_inbuff_p2	an	  an_n	  vdd	 vdd	pmos		w=wp_l2 	 l=lmin
+ man_inbuff_n2	an	  an_n	  0	 0	nmos		w=wp_l2 	 l=lmin
+
+ mb_inbuff-p1	b_n	  b_in	  vdd 	 vdd	pmos	        w=wp_l1		 l=lmin
+ mb_inbuff-n1	b_n	  b_in	  0   	 0	nmos  		w=wn_l1 	 l=lmin
+ mb_inbuff-p2	b	  b_n	  vdd	 vdd	pmos		w=wp_l2 	 l=lmin
+ mb_inbuff-n2	b	  b_n	  0	 0	nmos		w=wp_l2 	 l=lmin
+
+ ***************************************************************************************
+ ***************************************************************************************
+ ********************************** circuit design  ************************************
+ ***************************************************************************************
+ ***************************************************************************************
+
+ ***************************************************************************************
+ ***************************************************************************************
+ *********************************  pmos transistors  **********************************
+ ***************************************************************************************
+ ***************************************************************************************
+ mt1 y a b vdd pmos w='k1*wmin' l=lmin
+ mt2 y b a vdd pmos w='k2*wmin' l=lmin
+ mf2 yn y vdd vdd pmos w='k3*wmin' l=lmin
+
+ *mt1 y a b vdd pmos w=k1 l=lmin
+ *mt2 y b a vdd pmos w=k2 l=lmin
+ *mf2 yn y vdd vdd pmos w=k3 l=lmin
+ ***************************************************************************************
+ ***************************************************************************************
+ *********************************  nmos transistors  **********************************
+ ***************************************************************************************
+ ***************************************************************************************
+ mt3 yn a b 0 nmos w='k4*wmin' l=lmin
+ mt4 yn b a 0 nmos w='k5*wmin' l=lmin
+ mf1 y yn 0 0 nmos w='k6*wmin' l=lmin
+
+ *mt3 yn a b 0 nmos w=k4 l=lmin
+ *mt4 yn b a 0 nmos w=k5 l=lmin
+ *mf1 y yn 0 0 nmos w=k6 l=lmin
+
+ ***************************************************************************************
+ ***************************************************************************************
+ *******************************  output buffers  **************************************
+ ***************************************************************************************
+ ***************************************************************************************
+
+ my_outbuff_p1  		xorb   	y   	vdd  	vdd	 pmos  w=wp_l1  l=lmin
+ my_outbuff_n1  		xorb   	y   	0    	0	 nmos  w=wn_l1  l=lmin
+ my_outbuff_p2  		xor    	xorb   	vdd  	vdd	 pmos  w=wp_l2  l=lmin
+ my_outbuff_n2 		xor    	xorb   	0    	0	 nmos  w=wn_l2  l=lmin
+
+ myn_outbuff_p1 	xnorb  	yn  	vdd  	vdd	 pmos  w=wp_l1  l=lmin
+ myn_outbuff_n1		xnorb  	yn  	0    	0	 nmos  w=wn_l1  l=lmin
+ myn_outbuff_p2		xnor   	xnorb  	vdd  	vdd	 pmos  w=wp_l2  l=lmin
+ myn_outbuff_n2		xnor   	xnorb  	0    	0	 nmos  w=wn_l2  l=lmin
+
+ ***************************************************************************************
+ ***************************************************************************************
+ *********************************  measurements  **************************************
+ ***************************************************************************************
+ ***************************************************************************************
+
+ .measure  tran  average_power  avg  power  from=0ns  to=lentran
+
+
+ ***************************************************************************************
+ ***************************************************************************************
+
+ .measure  tran  tda_f_xor1   trig  v(a)  val='vdd/2'  td=15n   rise=1  targ  v(y)   val='vdd/2'  fall=1
+ .measure  tran  tda_r_xor2   trig  v(a)  val='vdd/2'  td=45n   fall=1  targ  v(y)   val='vdd/2'  rise=1
+ .measure  tran  tda_r_xor3   trig  v(a)  val='vdd/2'  td=85n   rise=1  targ  v(y)   val='vdd/2'  rise=1
+ .measure  tran  tda_f_xor4   trig  v(a)  val='vdd/2'  td=115n  fall=1  targ  v(y)   val='vdd/2'  fall=1
+
+ ***************************************************************************************
+ ***************************************************************************************
+
+ .measure  tran  tda_xor1   param='max(tda_f_xor1,tda_r_xor2)'
+ .measure  tran  tda_xor2   param='max(tda_r_xor3,tda_f_xor4)'
+ .measure  tran  tda_xor    param='max(tda_xor1,tda_xor2)'
+
+ ***************************************************************************************
+ ***************************************************************************************
+
+ .measure  tran  tda_r_xnor1  trig  v(a)  val='vdd/2'  td=15n   rise=1  targ  v(yn)  val='vdd/2'  rise=1
+ .measure  tran  tda_f_xnor2  trig  v(a)  val='vdd/2'  td=45n   fall=1  targ  v(yn)  val='vdd/2'  fall=1
+ .measure  tran  tda_f_xnor3  trig  v(a)  val='vdd/2'  td=85n   rise=1  targ  v(yn)  val='vdd/2'  fall=1
+ .measure  tran  tda_r_xnor4  trig  v(a)  val='vdd/2'  td=115n  fall=1  targ  v(yn)  val='vdd/2'  rise=1
+
+ ***************************************************************************************
+ ***************************************************************************************
+
+ .measure  tran  tda_xnor1   param='max(tda_r_xnor1,tda_f_xnor2)'
+ .measure  tran  tda_xnor2   param='max(tda_f_xnor3,tda_r_xnor4)'
+ .measure  tran  tda_xnor    param='max(tda_xnor1,tda_xnor2)'
+
+ ***************************************************************************************
+ ***************************************************************************************
+
+ .measure  tran  tdb_r_xor1   trig  v(b)  val='vdd/2'  td=5n   rise=1  targ  v(y)   val='vdd/2'  rise=1
+ .measure  tran  tdb_r_xor2   trig  v(b)  val='vdd/2'  td=25n  fall=1  targ  v(y)   val='vdd/2'  rise=1
+ .measure  tran  tdb_f_xor3   trig  v(b)  val='vdd/2'  td=35n  rise=1  targ  v(y)   val='vdd/2'  fall=1
+ .measure  tran  tdb_f_xor4   trig  v(b)  val='vdd/2'  td=55n  fall=1  targ  v(y)   val='vdd/2'  fall=1
+
+ ***************************************************************************************
+ ***************************************************************************************
+
+ .measure  tran  tdb_xor1   param='max(tdb_r_xor1,tdb_r_xor2)'
+ .measure  tran  tdb_xor2   param='max(tdb_f_xor3,tdb_f_xor4)'
+ .measure  tran  tdb_xor    param='max(tdb_xor1,tdb_xor2)'
+
+ ***************************************************************************************
+ ***************************************************************************************
+
+ .measure  tran  tdb_f_xnor1  trig  v(b)  val='vdd/2'  td=5n   rise=1  targ  v(yn)  val='vdd/2'  fall=1
+ .measure  tran  tdb_f_xnor2  trig  v(b)  val='vdd/2'  td=25n  fall=1  targ  v(yn)  val='vdd/2'  fall=1
+ .measure  tran  tdb_r_xnor3  trig  v(b)  val='vdd/2'  td=35n  rise=1  targ  v(yn)  val='vdd/2'  rise=1
+ .measure  tran  tdb_r_xnor4  trig  v(b)  val='vdd/2'  td=55n  fall=1  targ  v(yn)  val='vdd/2'  rise=1
+
+ ***************************************************************************************
+ ***************************************************************************************
+
+ .measure  tran  tdb_xnor1   param='max(tdb_f_xnor1,tdb_f_xnor2)'
+ .measure  tran  tdb_xnor2   param='max(tdb_r_xnor3,tdb_r_xnor4)'
+ .measure  tran  tdb_xnor    param='max(tdb_xnor1,tdb_xnor2)'
+
+ ***************************************************************************************
+ ***************************************************************************************
+
+ .measure  tran  tda  param='max(tda_xor,tda_xnor)'
+ .measure  tran  tdb  param='max(tdb_xor,tdb_xnor)'
+ .measure  tran  td   param='max(tda,tdb)'
+ .measure  tran  pdp  param='td*average_power'
+ ***************************************************************************************
+ ***************************************************************************************
+
+ .end
+
+ ***********************************************************************
+ ** runlvl is invoked, you can disable it by:
+      a) Add option runlvl=0 to your current simulation job.
+      b) Copy $installdir/hspice.ini to your HOME directory and
+         customize it by adding option runlvl=0, which disables
+         it for all of your simulation jobs.
+      c) Re-invoke $installdir/bin/config program and unselect the
+         option runlvl setting in box 'hspice.ini' which disables
+         it for whole group simulation jobs.
+
+ ** runlvl is invoked, some options are ignored or automatically set:
+      Options below are automatically set(user setting will overwrite them):
+      if runlvl=6,            .option bypass=0
+      if runlvl=[1|2|3|4|5],  .option bypass=2
+
+      Options below are ignored, they are replaced by automated algorithms:
+        lvltim    dvdt      ft    fast   trtol  absvar  relvar
+          relq  chgtol    dvtr    imin    itl3    rmax
+
+ ** runlvl is invoked, actual option value used by HSPICE are:
+       runlvl= 3       bypass= 2      mbypass=   2.00   bytol= 100.00u
+ ***********************************************************************
+
+
+ **warning** dc voltage reset to initial transient source value
+             in source        0:va                  new dc=  0.0000D+00
+
+
+ **warning** dc voltage reset to initial transient source value
+             in source        0:van                 new dc=  0.1800D+01
+
+
+ **warning** dc voltage reset to initial transient source value
+             in source        0:vb                  new dc=  0.0000D+00
+
+ 
+
+ Warning: Pd = 0 is less than W.
+ Model:    0:pmos
+ W = 6.5e-007, L = 1.3e-007
+
+ 
+      
+
+   *** parameter k1               =    2.500E+00 ***
+
+ ******  
+ title                                                                          
+  ******  transient analysis               tnom=  25.000 temp=  27.000          
+ ******  
+ average_power=   7.919566u  from=   0.            to= 130.000000n
+ tda_f_xor1=  54.385327p  targ=  20.092981n   trig=  20.038596n
+ tda_r_xor2=  42.730555p  targ=  50.079007n   trig=  50.036276n
+ tda_r_xor3=  39.078167p  targ=  90.076187n   trig=  90.037109n
+ tda_f_xor4=  20.884890p  targ= 120.058058n   trig= 120.037173n
+ tda_xor1=  54.385327p
+ tda_xor2=  39.078167p
+ tda_xor=  54.385327p
+ tda_r_xnor1=  14.233890p  targ=  20.052830n   trig=  20.038596n
+ tda_f_xnor2=  29.581957p  targ=  50.065858n   trig=  50.036276n
+ tda_f_xnor3=  21.502470p  targ=  90.058611n   trig=  90.037109n
+ tda_r_xnor4=  91.696740p  targ= 120.128870n   trig= 120.037173n
+ tda_xnor1=  29.581957p
+ tda_xnor2=  91.696740p
+ tda_xnor=  91.696740p
+ tdb_r_xor1=  41.899267p  targ=  10.079915n   trig=  10.038016n
+ tdb_r_xor2=  39.321358p  targ=  30.075923n   trig=  30.036601n
+ tdb_f_xor3=  51.981133p  targ=  40.091075n   trig=  40.039094n
+ tdb_f_xor4=  20.703200p  targ=  60.058302n   trig=  60.037599n
+ tdb_xor1=  41.899267p
+ tdb_xor2=  51.981133p
+ tdb_xor=  51.981133p
+ tdb_f_xnor1=  29.295689p  targ=  10.067312n   trig=  10.038016n
+ tdb_f_xnor2=  21.008877p  targ=  30.057610n   trig=  30.036601n
+ tdb_r_xnor3=  11.588565p  targ=  40.050683n   trig=  40.039094n
+ tdb_r_xnor4=  90.591374p  targ=  60.128190n   trig=  60.037599n
+ tdb_xnor1=  29.295689p
+ tdb_xnor2=  90.591374p
+ tdb_xnor=  90.591374p
+ tda=  91.696740p
+ tdb=  90.591374p
+ td=  91.696740p
+ pdp= 726.198430a
+
+          ***** job concluded
+
+   *** parameter k1               =    2.510E+00 ***
+
+ ******  
+ title                                                                          
+  ******  transient analysis               tnom=  25.000 temp=  27.000          
+ ******  
+ average_power=   7.928819u  from=   0.            to= 130.000000n
+ tda_f_xor1=  54.411549p  targ=  20.093012n   trig=  20.038600n
+ tda_r_xor2=  42.614868p  targ=  50.078893n   trig=  50.036279n
+ tda_r_xor3=  39.080158p  targ=  90.076191n   trig=  90.037111n
+ tda_f_xor4=  20.857837p  targ= 120.058033n   trig= 120.037175n
+ tda_xor1=  54.411549p
+ tda_xor2=  39.080158p
+ tda_xor=  54.411549p
+ tda_r_xnor1=  14.234855p  targ=  20.052835n   trig=  20.038600n
+ tda_f_xnor2=  29.583155p  targ=  50.065862n   trig=  50.036279n
+ tda_f_xnor3=  21.502683p  targ=  90.058613n   trig=  90.037111n
+ tda_r_xnor4=  91.663242p  targ= 120.128838n   trig= 120.037175n
+ tda_xnor1=  29.583155p
+ tda_xnor2=  91.663242p
+ tda_xnor=  91.663242p
+ tdb_r_xor1=  41.791210p  targ=  10.079811n   trig=  10.038019n
+ tdb_r_xor2=  39.326573p  targ=  30.075928n   trig=  30.036602n
+ tdb_f_xor3=  51.989268p  targ=  40.091084n   trig=  40.039095n
+ tdb_f_xor4=  20.498902p  targ=  60.057761n   trig=  60.037263n
+ tdb_xor1=  41.791210p
+ tdb_xor2=  51.989268p
+ tdb_xor=  51.989268p
+ tdb_f_xnor1=  29.295481p  targ=  10.067315n   trig=  10.038019n
+ tdb_f_xnor2=  21.009777p  targ=  30.057612n   trig=  30.036602n
+ tdb_r_xnor3=  11.588132p  targ=  40.050683n   trig=  40.039095n
+ tdb_r_xnor4=  90.616561p  targ=  60.127879n   trig=  60.037263n
+ tdb_xnor1=  29.295481p
+ tdb_xnor2=  90.616561p
+ tdb_xnor=  90.616561p
+ tda=  91.663242p
+ tdb=  90.616561p
+ td=  91.663242p
+ pdp= 726.781211a
+
+          ***** job concluded
+
+   *** parameter k1               =    2.520E+00 ***
+
+ ******  
+ title                                                                          
+  ******  transient analysis               tnom=  25.000 temp=  27.000          
+ ******  
+ average_power=   7.928778u  from=   0.            to= 130.000000n
+ tda_f_xor1=  54.437747p  targ=  20.093042n   trig=  20.038604n
+ tda_r_xor2=  42.499812p  targ=  50.078781n   trig=  50.036281n
+ tda_r_xor3=  39.082148p  targ=  90.076195n   trig=  90.037113n
+ tda_f_xor4=  20.830848p  targ= 120.058008n   trig= 120.037177n
+ tda_xor1=  54.437747p
+ tda_xor2=  39.082148p
+ tda_xor=  54.437747p
+ tda_r_xnor1=  14.235818p  targ=  20.052840n   trig=  20.038604n
+ tda_f_xnor2=  29.584351p  targ=  50.065865n   trig=  50.036281n
+ tda_f_xnor3=  21.502895p  targ=  90.058616n   trig=  90.037113n
+ tda_r_xnor4=  91.629856p  targ= 120.128807n   trig= 120.037177n
+ tda_xnor1=  29.584351p
+ tda_xnor2=  91.629856p
+ tda_xnor=  91.629856p
+ tdb_r_xor1=  41.683926p  targ=  10.079707n   trig=  10.038023n
+ tdb_r_xor2=  39.331788p  targ=  30.075934n   trig=  30.036602n
+ tdb_f_xor3=  51.997402p  targ=  40.091094n   trig=  40.039096n
+ tdb_f_xor4=  20.452008p  targ=  60.057719n   trig=  60.037267n
+ tdb_xor1=  41.683926p
+ tdb_xor2=  51.997402p
+ tdb_xor=  51.997402p
+ tdb_f_xnor1=  29.295271p  targ=  10.067318n   trig=  10.038023n
+ tdb_f_xnor2=  21.010677p  targ=  30.057613n   trig=  30.036602n
+ tdb_r_xnor3=  11.587698p  targ=  40.050684n   trig=  40.039096n
+ tdb_r_xnor4=  90.576071p  targ=  60.127844n   trig=  60.037267n
+ tdb_xnor1=  29.295271p
+ tdb_xnor2=  90.576071p
+ tdb_xnor=  90.576071p
+ tda=  91.629856p
+ tdb=  90.576071p
+ td=  91.629856p
+ pdp= 726.512811a
+
+          ***** job concluded
+
+   *** parameter k1               =    2.530E+00 ***
+
+ ******  
+ title                                                                          
+  ******  transient analysis               tnom=  25.000 temp=  27.000          
+ ******  
+ average_power=   7.928756u  from=   0.            to= 130.000000n
+ tda_f_xor1=  54.463919p  targ=  20.093072n   trig=  20.038608n
+ tda_r_xor2=  42.385377p  targ=  50.078669n   trig=  50.036284n
+ tda_r_xor3=  39.084137p  targ=  90.076199n   trig=  90.037115n
+ tda_f_xor4=  20.803923p  targ= 120.057982n   trig= 120.037178n
+ tda_xor1=  54.463919p
+ tda_xor2=  39.084137p
+ tda_xor=  54.463919p
+ tda_r_xnor1=  14.236781p  targ=  20.052845n   trig=  20.038608n
+ tda_f_xnor2=  29.585544p  targ=  50.065869n   trig=  50.036284n
+ tda_f_xnor3=  21.503108p  targ=  90.058618n   trig=  90.037115n
+ tda_r_xnor4=  91.596584p  targ= 120.128775n   trig= 120.037178n
+ tda_xnor1=  29.585544p
+ tda_xnor2=  91.596584p
+ tda_xnor=  91.596584p
+ tdb_r_xor1=  41.577400p  targ=  10.079603n   trig=  10.038026n
+ tdb_r_xor2=  39.337003p  targ=  30.075940n   trig=  30.036603n
+ tdb_f_xor3=  52.005536p  targ=  40.091103n   trig=  40.039097n
+ tdb_f_xor4=  20.405132p  targ=  60.057678n   trig=  60.037272n
+ tdb_xor1=  41.577400p
+ tdb_xor2=  52.005536p
+ tdb_xor=  52.005536p
+ tdb_f_xnor1=  29.295058p  targ=  10.067321n   trig=  10.038026n
+ tdb_f_xnor2=  21.011578p  targ=  30.057614n   trig=  30.036603n
+ tdb_r_xnor3=  11.587266p  targ=  40.050685n   trig=  40.039097n
+ tdb_r_xnor4=  90.535733p  targ=  60.127808n   trig=  60.037272n
+ tdb_xnor1=  29.295058p
+ tdb_xnor2=  90.535733p
+ tdb_xnor=  90.535733p
+ tda=  91.596584p
+ tdb=  90.535733p
+ td=  91.596584p
+ pdp= 726.246943a
+
+          ***** job concluded
+
+   *** parameter k1               =    2.540E+00 ***
+
+ ******  
+ title                                                                          
+  ******  transient analysis               tnom=  25.000 temp=  27.000          
+ ******  
+ average_power=   7.928753u  from=   0.            to= 130.000000n
+ tda_f_xor1=  54.490067p  targ=  20.093102n   trig=  20.038612n
+ tda_r_xor2=  42.271554p  targ=  50.078558n   trig=  50.036286n
+ tda_r_xor3=  39.086124p  targ=  90.076204n   trig=  90.037117n
+ tda_f_xor4=  20.777063p  targ= 120.057957n   trig= 120.037180n
+ tda_xor1=  54.490067p
+ tda_xor2=  39.086124p
+ tda_xor=  54.490067p
+ tda_r_xnor1=  14.237742p  targ=  20.052849n   trig=  20.038612n
+ tda_f_xnor2=  29.586734p  targ=  50.065873n   trig=  50.036286n
+ tda_f_xnor3=  21.503321p  targ=  90.058621n   trig=  90.037117n
+ tda_r_xnor4=  91.563424p  targ= 120.128744n   trig= 120.037180n
+ tda_xnor1=  29.586734p
+ tda_xnor2=  91.563424p
+ tda_xnor=  91.563424p
+ tdb_r_xor1=  41.471620p  targ=  10.079501n   trig=  10.038029n
+ tdb_r_xor2=  39.342219p  targ=  30.075946n   trig=  30.036603n
+ tdb_f_xor3=  52.013668p  targ=  40.091112n   trig=  40.039098n
+ tdb_f_xor4=  20.358276p  targ=  60.057636n   trig=  60.037277n
+ tdb_xor1=  41.471620p
+ tdb_xor2=  52.013668p
+ tdb_xor=  52.013668p
+ tdb_f_xnor1=  29.294842p  targ=  10.067324n   trig=  10.038029n
+ tdb_f_xnor2=  21.012479p  targ=  30.057616n   trig=  30.036603n
+ tdb_r_xnor3=  11.586833p  targ=  40.050685n   trig=  40.039098n
+ tdb_r_xnor4=  90.495546p  targ=  60.127773n   trig=  60.037277n
+ tdb_xnor1=  29.294842p
+ tdb_xnor2=  90.495546p
+ tdb_xnor=  90.495546p
+ tda=  91.563424p
+ tdb=  90.495546p
+ td=  91.563424p
+ pdp= 725.983796a
+
+          ***** job concluded
+
+   *** parameter k1               =    2.550E+00 ***
+
+ ******  
+ title                                                                          
+  ******  transient analysis               tnom=  25.000 temp=  27.000          
+ ******  
+ average_power=   7.928741u  from=   0.            to= 130.000000n
+ tda_f_xor1=  54.516190p  targ=  20.093132n   trig=  20.038616n
+ tda_r_xor2=  42.158333p  targ=  50.078447n   trig=  50.036289n
+ tda_r_xor3=  39.088109p  targ=  90.076208n   trig=  90.037120n
+ tda_f_xor4=  20.748816p  targ= 120.057931n   trig= 120.037182n
+ tda_xor1=  54.516190p
+ tda_xor2=  39.088109p
+ tda_xor=  54.516190p
+ tda_r_xnor1=  14.238695p  targ=  20.052854n   trig=  20.038616n
+ tda_f_xnor2=  29.587923p  targ=  50.065876n   trig=  50.036289n
+ tda_f_xnor3=  21.503534p  targ=  90.058623n   trig=  90.037120n
+ tda_r_xnor4=  91.531325p  targ= 120.128713n   trig= 120.037182n
+ tda_xnor1=  29.587923p
+ tda_xnor2=  91.531325p
+ tda_xnor=  91.531325p
+ tdb_r_xor1=  41.366571p  targ=  10.079399n   trig=  10.038033n
+ tdb_r_xor2=  39.347435p  targ=  30.075951n   trig=  30.036604n
+ tdb_f_xor3=  52.021800p  targ=  40.091121n   trig=  40.039099n
+ tdb_f_xor4=  20.311439p  targ=  60.057594n   trig=  60.037282n
+ tdb_xor1=  41.366571p
+ tdb_xor2=  52.021800p
+ tdb_xor=  52.021800p
+ tdb_f_xnor1=  29.294624p  targ=  10.067327n   trig=  10.038033n
+ tdb_f_xnor2=  21.013380p  targ=  30.057617n   trig=  30.036604n
+ tdb_r_xnor3=  11.586401p  targ=  40.050686n   trig=  40.039099n
+ tdb_r_xnor4=  90.455509p  targ=  60.127738n   trig=  60.037282n
+ tdb_xnor1=  29.294624p
+ tdb_xnor2=  90.455509p
+ tdb_xnor=  90.455509p
+ tda=  91.531325p
+ tdb=  90.455509p
+ td=  91.531325p
+ pdp= 725.728138a
+
+          ***** job concluded
+
+   *** parameter k1               =    2.560E+00 ***
+
+ ******  
+ title                                                                          
+  ******  transient analysis               tnom=  25.000 temp=  27.000          
+ ******  
+ average_power=   7.928793u  from=   0.            to= 130.000000n
+ tda_f_xor1=  54.542288p  targ=  20.093162n   trig=  20.038619n
+ tda_r_xor2=  42.045706p  targ=  50.078337n   trig=  50.036291n
+ tda_r_xor3=  39.090093p  targ=  90.076212n   trig=  90.037122n
+ tda_f_xor4=  20.722071p  targ= 120.057905n   trig= 120.037183n
+ tda_xor1=  54.542288p
+ tda_xor2=  39.090093p
+ tda_xor=  54.542288p
+ tda_r_xnor1=  14.239653p  targ=  20.052859n   trig=  20.038619n
+ tda_f_xnor2=  29.589110p  targ=  50.065880n   trig=  50.036291n
+ tda_f_xnor3=  21.503748p  targ=  90.058626n   trig=  90.037122n
+ tda_r_xnor4=  91.498394p  targ= 120.128682n   trig= 120.037183n
+ tda_xnor1=  29.589110p
+ tda_xnor2=  91.498394p
+ tda_xnor=  91.498394p
+ tdb_r_xor1=  41.262241p  targ=  10.079298n   trig=  10.038036n
+ tdb_r_xor2=  39.352652p  targ=  30.075957n   trig=  30.036604n
+ tdb_f_xor3=  52.029930p  targ=  40.091130n   trig=  40.039101n
+ tdb_f_xor4=  20.264621p  targ=  60.057552n   trig=  60.037287n
+ tdb_xor1=  41.262241p
+ tdb_xor2=  52.029930p
+ tdb_xor=  52.029930p
+ tdb_f_xnor1=  29.294404p  targ=  10.067330n   trig=  10.038036n
+ tdb_f_xnor2=  21.014282p  targ=  30.057619n   trig=  30.036604n
+ tdb_r_xnor3=  11.585968p  targ=  40.050687n   trig=  40.039101n
+ tdb_r_xnor4=  90.415621p  targ=  60.127703n   trig=  60.037287n
+ tdb_xnor1=  29.294404p
+ tdb_xnor2=  90.415621p
+ tdb_xnor=  90.415621p
+ tda=  91.498394p
+ tdb=  90.415621p
+ td=  91.498394p
+ pdp= 725.471799a
+
+          ***** job concluded
+
+   *** parameter k1               =    2.570E+00 ***
+
+ ******  
+ title                                                                          
+  ******  transient analysis               tnom=  25.000 temp=  27.000          
+ ******  
+ average_power=   7.928898u  from=   0.            to= 130.000000n
+ tda_f_xor1=  54.568362p  targ=  20.093192n   trig=  20.038623n
+ tda_r_xor2=  41.933662p  targ=  50.078227n   trig=  50.036293n
+ tda_r_xor3=  39.092076p  targ=  90.076216n   trig=  90.037124n
+ tda_f_xor4=  20.695388p  targ= 120.057880n   trig= 120.037185n
+ tda_xor1=  54.568362p
+ tda_xor2=  39.092076p
+ tda_xor=  54.568362p
+ tda_r_xnor1=  14.240611p  targ=  20.052864n   trig=  20.038623n
+ tda_f_xnor2=  29.590294p  targ=  50.065884n   trig=  50.036293n
+ tda_f_xnor3=  21.503961p  targ=  90.058628n   trig=  90.037124n
+ tda_r_xnor4=  91.465573p  targ= 120.128651n   trig= 120.037185n
+ tda_xnor1=  29.590294p
+ tda_xnor2=  91.465573p
+ tda_xnor=  91.465573p
+ tdb_r_xor1=  41.158617p  targ=  10.079198n   trig=  10.038039n
+ tdb_r_xor2=  39.357870p  targ=  30.075963n   trig=  30.036605n
+ tdb_f_xor3=  52.038060p  targ=  40.091140n   trig=  40.039102n
+ tdb_f_xor4=  20.217822p  targ=  60.057510n   trig=  60.037292n
+ tdb_xor1=  41.158617p
+ tdb_xor2=  52.038060p
+ tdb_xor=  52.038060p
+ tdb_f_xnor1=  29.294181p  targ=  10.067333n   trig=  10.038039n
+ tdb_f_xnor2=  21.015185p  targ=  30.057620n   trig=  30.036605n
+ tdb_r_xnor3=  11.585536p  targ=  40.050687n   trig=  40.039102n
+ tdb_r_xnor4=  90.375882p  targ=  60.127668n   trig=  60.037292n
+ tdb_xnor1=  29.294181p
+ tdb_xnor2=  90.375882p
+ tdb_xnor=  90.375882p
+ tda=  91.465573p
+ tdb=  90.375882p
+ td=  91.465573p
+ pdp= 725.221178a
+
+          ***** job concluded
+
+   *** parameter k1               =    2.580E+00 ***
+
+ ******  
+ title                                                                          
+  ******  transient analysis               tnom=  25.000 temp=  27.000          
+ ******  
+ average_power=   7.928864u  from=   0.            to= 130.000000n
+ tda_f_xor1=  54.594412p  targ=  20.093222n   trig=  20.038627n
+ tda_r_xor2=  41.822193p  targ=  50.078118n   trig=  50.036296n
+ tda_r_xor3=  39.094057p  targ=  90.076220n   trig=  90.037126n
+ tda_f_xor4=  20.668768p  targ= 120.057855n   trig= 120.037187n
+ tda_xor1=  54.594412p
+ tda_xor2=  39.094057p
+ tda_xor=  54.594412p
+ tda_r_xnor1=  14.241567p  targ=  20.052869n   trig=  20.038627n
+ tda_f_xnor2=  29.591477p  targ=  50.065887n   trig=  50.036296n
+ tda_f_xnor3=  21.504175p  targ=  90.058631n   trig=  90.037126n
+ tda_r_xnor4=  91.432862p  targ= 120.128620n   trig= 120.037187n
+ tda_xnor1=  29.591477p
+ tda_xnor2=  91.432862p
+ tda_xnor=  91.432862p
+ tdb_r_xor1=  41.055687p  targ=  10.079098n   trig=  10.038042n
+ tdb_r_xor2=  39.363088p  targ=  30.075969n   trig=  30.036605n
+ tdb_f_xor3=  52.046189p  targ=  40.091149n   trig=  40.039103n
+ tdb_f_xor4=  20.171038p  targ=  60.057468n   trig=  60.037297n
+ tdb_xor1=  41.055687p
+ tdb_xor2=  52.046189p
+ tdb_xor=  52.046189p
+ tdb_f_xnor1=  29.293957p  targ=  10.067336n   trig=  10.038042n
+ tdb_f_xnor2=  21.016088p  targ=  30.057622n   trig=  30.036605n
+ tdb_r_xnor3=  11.585105p  targ=  40.050688n   trig=  40.039103n
+ tdb_r_xnor4=  90.336286p  targ=  60.127633n   trig=  60.037297n
+ tdb_xnor1=  29.293957p
+ tdb_xnor2=  90.336286p
+ tdb_xnor=  90.336286p
+ tda=  91.432862p
+ tdb=  90.336286p
+ td=  91.432862p
+ pdp= 724.958709a
+
+          ***** job concluded
+
+   *** parameter k1               =    2.590E+00 ***
+
+ ******  
+ title                                                                          
+  ******  transient analysis               tnom=  25.000 temp=  27.000          
+ ******  
+ average_power=   7.928718u  from=   0.            to= 130.000000n
+ tda_f_xor1=  54.620439p  targ=  20.093252n   trig=  20.038631n
+ tda_r_xor2=  41.711290p  targ=  50.078010n   trig=  50.036298n
+ tda_r_xor3=  39.096037p  targ=  90.076225n   trig=  90.037129n
+ tda_f_xor4=  20.642210p  targ= 120.057831n   trig= 120.037188n
+ tda_xor1=  54.620439p
+ tda_xor2=  39.096037p
+ tda_xor=  54.620439p
+ tda_r_xnor1=  14.242522p  targ=  20.052874n   trig=  20.038631n
+ tda_f_xnor2=  29.592659p  targ=  50.065891n   trig=  50.036298n
+ tda_f_xnor3=  21.504390p  targ=  90.058633n   trig=  90.037129n
+ tda_r_xnor4=  91.400260p  targ= 120.128589n   trig= 120.037188n
+ tda_xnor1=  29.592659p
+ tda_xnor2=  91.400260p
+ tda_xnor=  91.400260p
+ tdb_r_xor1=  40.953437p  targ=  10.078999n   trig=  10.038046n
+ tdb_r_xor2=  39.368307p  targ=  30.075974n   trig=  30.036606n
+ tdb_f_xor3=  52.054317p  targ=  40.091158n   trig=  40.039104n
+ tdb_f_xor4=  20.124271p  targ=  60.057426n   trig=  60.037302n
+ tdb_xor1=  40.953437p
+ tdb_xor2=  52.054317p
+ tdb_xor=  52.054317p
+ tdb_f_xnor1=  29.293731p  targ=  10.067339n   trig=  10.038046n
+ tdb_f_xnor2=  21.016991p  targ=  30.057623n   trig=  30.036606n
+ tdb_r_xnor3=  11.584673p  targ=  40.050689n   trig=  40.039104n
+ tdb_r_xnor4=  90.296836p  targ=  60.127598n   trig=  60.037302n
+ tdb_xnor1=  29.293731p
+ tdb_xnor2=  90.296836p
+ tdb_xnor=  90.296836p
+ tda=  91.400260p
+ tdb=  90.296836p
+ td=  91.400260p
+ pdp= 724.686868a
+
+          ***** job concluded
+
+   *** parameter k1               =    2.600E+00 ***
+
+ ******  
+ title                                                                          
+  ******  transient analysis               tnom=  25.000 temp=  27.000          
+ ******  
+ average_power=   7.928563u  from=   0.            to= 130.000000n
+ tda_f_xor1=  54.646441p  targ=  20.093281n   trig=  20.038635n
+ tda_r_xor2=  41.600943p  targ=  50.077902n   trig=  50.036301n
+ tda_r_xor3=  39.098015p  targ=  90.076229n   trig=  90.037131n
+ tda_f_xor4=  20.615714p  targ= 120.057806n   trig= 120.037190n
+ tda_xor1=  54.646441p
+ tda_xor2=  39.098015p
+ tda_xor=  54.646441p
+ tda_r_xnor1=  14.243475p  targ=  20.052879n   trig=  20.038635n
+ tda_f_xnor2=  29.593838p  targ=  50.065895n   trig=  50.036301n
+ tda_f_xnor3=  21.504604p  targ=  90.058635n   trig=  90.037131n
+ tda_r_xnor4=  91.367767p  targ= 120.128558n   trig= 120.037190n
+ tda_xnor1=  29.593838p
+ tda_xnor2=  91.367767p
+ tda_xnor=  91.367767p
+ tdb_r_xor1=  40.851855p  targ=  10.078901n   trig=  10.038049n
+ tdb_r_xor2=  39.373526p  targ=  30.075980n   trig=  30.036606n
+ tdb_f_xor3=  52.062444p  targ=  40.091167n   trig=  40.039105n
+ tdb_f_xor4=  20.077524p  targ=  60.057384n   trig=  60.037306n
+ tdb_xor1=  40.851855p
+ tdb_xor2=  52.062444p
+ tdb_xor=  52.062444p
+ tdb_f_xnor1=  29.293502p  targ=  10.067342n   trig=  10.038049n
+ tdb_f_xnor2=  21.017895p  targ=  30.057624n   trig=  30.036606n
+ tdb_r_xnor3=  11.584242p  targ=  40.050689n   trig=  40.039105n
+ tdb_r_xnor4=  90.257533p  targ=  60.127564n   trig=  60.037306n
+ tdb_xnor1=  29.293502p
+ tdb_xnor2=  90.257533p
+ tdb_xnor=  90.257533p
+ tda=  91.367767p
+ tdb=  90.257533p
+ td=  91.367767p
+ pdp= 724.415104a
+
+          ***** job concluded
+
+   *** parameter k1               =    2.610E+00 ***
+
+ ******  
+ title                                                                          
+  ******  transient analysis               tnom=  25.000 temp=  27.000          
+ ******  
+ average_power=   7.928414u  from=   0.            to= 130.000000n
+ tda_f_xor1=  54.672420p  targ=  20.093311n   trig=  20.038639n
+ tda_r_xor2=  41.491145p  targ=  50.077794n   trig=  50.036303n
+ tda_r_xor3=  39.099992p  targ=  90.076233n   trig=  90.037133n
+ tda_f_xor4=  20.589279p  targ= 120.057781n   trig= 120.037192n
+ tda_xor1=  54.672420p
+ tda_xor2=  39.099992p
+ tda_xor=  54.672420p
+ tda_r_xnor1=  14.244427p  targ=  20.052883n   trig=  20.038639n
+ tda_f_xnor2=  29.595017p  targ=  50.065898n   trig=  50.036303n
+ tda_f_xnor3=  21.504819p  targ=  90.058638n   trig=  90.037133n
+ tda_r_xnor4=  91.335382p  targ= 120.128527n   trig= 120.037192n
+ tda_xnor1=  29.595017p
+ tda_xnor2=  91.335382p
+ tda_xnor=  91.335382p
+ tdb_r_xor1=  40.750929p  targ=  10.078803n   trig=  10.038052n
+ tdb_r_xor2=  39.378746p  targ=  30.075986n   trig=  30.036607n
+ tdb_f_xor3=  52.070570p  targ=  40.091177n   trig=  40.039106n
+ tdb_f_xor4=  20.030789p  targ=  60.057342n   trig=  60.037311n
+ tdb_xor1=  40.750929p
+ tdb_xor2=  52.070570p
+ tdb_xor=  52.070570p
+ tdb_f_xnor1=  29.293272p  targ=  10.067345n   trig=  10.038052n
+ tdb_f_xnor2=  21.018799p  targ=  30.057626n   trig=  30.036607n
+ tdb_r_xnor3=  11.583811p  targ=  40.050690n   trig=  40.039106n
+ tdb_r_xnor4=  90.218364p  targ=  60.127530n   trig=  60.037311n
+ tdb_xnor1=  29.293272p
+ tdb_xnor2=  90.218364p
+ tdb_xnor=  90.218364p
+ tda=  91.335382p
+ tdb=  90.218364p
+ td=  91.335382p
+ pdp= 724.144696a
+
+          ***** job concluded
+
+   *** parameter k1               =    2.620E+00 ***
+
+ ******  
+ title                                                                          
+  ******  transient analysis               tnom=  25.000 temp=  27.000          
+ ******  
+ average_power=   7.926894u  from=   0.            to= 130.000000n
+ tda_f_xor1=  54.698374p  targ=  20.093341n   trig=  20.038643n
+ tda_r_xor2=  41.381887p  targ=  50.077688n   trig=  50.036306n
+ tda_r_xor3=  39.101967p  targ=  90.076237n   trig=  90.037135n
+ tda_f_xor4=  20.562905p  targ= 120.057756n   trig= 120.037193n
+ tda_xor1=  54.698374p
+ tda_xor2=  39.101967p
+ tda_xor=  54.698374p
+ tda_r_xnor1=  14.245377p  targ=  20.052888n   trig=  20.038643n
+ tda_f_xnor2=  29.596194p  targ=  50.065902n   trig=  50.036306n
+ tda_f_xnor3=  21.505034p  targ=  90.058640n   trig=  90.037135n
+ tda_r_xnor4=  91.303106p  targ= 120.128496n   trig= 120.037193n
+ tda_xnor1=  29.596194p
+ tda_xnor2=  91.303106p
+ tda_xnor=  91.303106p
+ tdb_r_xor1=  40.650648p  targ=  10.078706n   trig=  10.038055n
+ tdb_r_xor2=  39.383966p  targ=  30.075991n   trig=  30.036607n
+ tdb_f_xor3=  52.078695p  targ=  40.091186n   trig=  40.039107n
+ tdb_f_xor4=  19.843353p  targ=  60.057393n   trig=  60.037550n
+ tdb_xor1=  40.650648p
+ tdb_xor2=  52.078695p
+ tdb_xor=  52.078695p
+ tdb_f_xnor1=  29.293041p  targ=  10.067348n   trig=  10.038055n
+ tdb_f_xnor2=  21.019704p  targ=  30.057627n   trig=  30.036607n
+ tdb_r_xnor3=  11.583380p  targ=  40.050691n   trig=  40.039107n
+ tdb_r_xnor4=  89.918726p  targ=  60.127468n   trig=  60.037550n
+ tdb_xnor1=  29.293041p
+ tdb_xnor2=  89.918726p
+ tdb_xnor=  89.918726p
+ tda=  91.303106p
+ tdb=  89.918726p
+ td=  91.303106p
+ pdp= 723.750084a
+
+          ***** job concluded
+
+   *** parameter k1               =    2.630E+00 ***
+
+ ******  
+ title                                                                          
+  ******  transient analysis               tnom=  25.000 temp=  27.000          
+ ******  
+ average_power=   7.926594u  from=   0.            to= 130.000000n
+ tda_f_xor1=  54.724305p  targ=  20.093371n   trig=  20.038647n
+ tda_r_xor2=  41.273161p  targ=  50.077581n   trig=  50.036308n
+ tda_r_xor3=  39.103941p  targ=  90.076241n   trig=  90.037137n
+ tda_f_xor4=  20.536592p  targ= 120.057732n   trig= 120.037195n
+ tda_xor1=  54.724305p
+ tda_xor2=  39.103941p
+ tda_xor=  54.724305p
+ tda_r_xnor1=  14.246326p  targ=  20.052893n   trig=  20.038647n
+ tda_f_xnor2=  29.597371p  targ=  50.065906n   trig=  50.036308n
+ tda_f_xnor3=  21.505249p  targ=  90.058643n   trig=  90.037137n
+ tda_r_xnor4=  91.270936p  targ= 120.128466n   trig= 120.037195n
+ tda_xnor1=  29.597371p
+ tda_xnor2=  91.270936p
+ tda_xnor=  91.270936p
+ tdb_r_xor1=  40.550999p  targ=  10.078610n   trig=  10.038059n
+ tdb_r_xor2=  39.389187p  targ=  30.075997n   trig=  30.036608n
+ tdb_f_xor3=  52.086820p  targ=  40.091195n   trig=  40.039108n
+ tdb_f_xor4=  19.790012p  targ=  60.057378n   trig=  60.037588n
+ tdb_xor1=  40.550999p
+ tdb_xor2=  52.086820p
+ tdb_xor=  52.086820p
+ tdb_f_xnor1=  29.292807p  targ=  10.067351n   trig=  10.038059n
+ tdb_f_xnor2=  21.020609p  targ=  30.057629n   trig=  30.036608n
+ tdb_r_xnor3=  11.582949p  targ=  40.050691n   trig=  40.039108n
+ tdb_r_xnor4=  89.833271p  targ=  60.127421n   trig=  60.037588n
+ tdb_xnor1=  29.292807p
+ tdb_xnor2=  89.833271p
+ tdb_xnor=  89.833271p
+ tda=  91.270936p
+ tdb=  89.833271p
+ td=  91.270936p
+ pdp= 723.467615a
+
+          ***** job concluded
+
+   *** parameter k1               =    2.640E+00 ***
+
+ ******  
+ title                                                                          
+  ******  transient analysis               tnom=  25.000 temp=  27.000          
+ ******  
+ average_power=   7.927623u  from=   0.            to= 130.000000n
+ tda_f_xor1=  54.750212p  targ=  20.093401n   trig=  20.038651n
+ tda_r_xor2=  41.164957p  targ=  50.077476n   trig=  50.036311n
+ tda_r_xor3=  39.105913p  targ=  90.076246n   trig=  90.037140n
+ tda_f_xor4=  20.510339p  targ= 120.057707n   trig= 120.037197n
+ tda_xor1=  54.750212p
+ tda_xor2=  39.105913p
+ tda_xor=  54.750212p
+ tda_r_xnor1=  14.247273p  targ=  20.052898n   trig=  20.038651n
+ tda_f_xnor2=  29.598546p  targ=  50.065909n   trig=  50.036311n
+ tda_f_xnor3=  21.505464p  targ=  90.058645n   trig=  90.037140n
+ tda_r_xnor4=  91.238873p  targ= 120.128435n   trig= 120.037197n
+ tda_xnor1=  29.598546p
+ tda_xnor2=  91.238873p
+ tda_xnor=  91.238873p
+ tdb_r_xor1=  40.451972p  targ=  10.078514n   trig=  10.038062n
+ tdb_r_xor2=  39.394408p  targ=  30.076003n   trig=  30.036608n
+ tdb_f_xor3=  52.094943p  targ=  40.091204n   trig=  40.039109n
+ tdb_f_xor4=  19.724745p  targ=  60.057480n   trig=  60.037756n
+ tdb_xor1=  40.451972p
+ tdb_xor2=  52.094943p
+ tdb_xor=  52.094943p
+ tdb_f_xnor1=  29.292573p  targ=  10.067354n   trig=  10.038062n
+ tdb_f_xnor2=  21.021515p  targ=  30.057630n   trig=  30.036608n
+ tdb_r_xnor3=  11.582519p  targ=  40.050692n   trig=  40.039109n
+ tdb_r_xnor4=  89.765102p  targ=  60.127521n   trig=  60.037756n
+ tdb_xnor1=  29.292573p
+ tdb_xnor2=  89.765102p
+ tdb_xnor=  89.765102p
+ tda=  91.238873p
+ tdb=  89.765102p
+ td=  91.238873p
+ pdp= 723.307414a
+
+          ***** job concluded
+
+   *** parameter k1               =    2.650E+00 ***
+
+ ******  
+ title                                                                          
+  ******  transient analysis               tnom=  25.000 temp=  27.000          
+ ******  
+ average_power=   7.918277u  from=   0.            to= 130.000000n
+ tda_f_xor1=  54.776096p  targ=  20.093431n   trig=  20.038654n
+ tda_r_xor2=  41.058024p  targ=  50.077371n   trig=  50.036313n
+ tda_r_xor3=  39.107884p  targ=  90.076250n   trig=  90.037142n
+ tda_f_xor4=  20.484147p  targ= 120.057682n   trig= 120.037198n
+ tda_xor1=  54.776096p
+ tda_xor2=  39.107884p
+ tda_xor=  54.776096p
+ tda_r_xnor1=  14.248219p  targ=  20.052903n   trig=  20.038654n
+ tda_f_xnor2=  29.599721p  targ=  50.065913n   trig=  50.036313n
+ tda_f_xnor3=  21.505680p  targ=  90.058648n   trig=  90.037142n
+ tda_r_xnor4=  91.206916p  targ= 120.128405n   trig= 120.037198n
+ tda_xnor1=  29.599721p
+ tda_xnor2=  91.206916p
+ tda_xnor=  91.206916p
+ tdb_r_xor1=  40.353555p  targ=  10.078419n   trig=  10.038065n
+ tdb_r_xor2=  39.399630p  targ=  30.076009n   trig=  30.036609n
+ tdb_f_xor3=  52.103066p  targ=  40.091214n   trig=  40.039110n
+ tdb_f_xor4=  20.217594p  targ=  60.057721n   trig=  60.037504n
+ tdb_xor1=  40.353555p
+ tdb_xor2=  52.103066p
+ tdb_xor=  52.103066p
+ tdb_f_xnor1=  29.292337p  targ=  10.067358n   trig=  10.038065n
+ tdb_f_xnor2=  21.022421p  targ=  30.057631n   trig=  30.036609n
+ tdb_r_xnor3=  11.582089p  targ=  40.050693n   trig=  40.039110n
+ tdb_r_xnor4=  90.010278p  targ=  60.127514n   trig=  60.037504n
+ tdb_xnor1=  29.292337p
+ tdb_xnor2=  90.010278p
+ tdb_xnor=  90.010278p
+ tda=  91.206916p
+ tdb=  90.010278p
+ td=  91.206916p
+ pdp= 722.201634a
+
+          ***** job concluded
+
+   *** parameter k1               =    2.660E+00 ***
+
+ ******  
+ title                                                                          
+  ******  transient analysis               tnom=  25.000 temp=  27.000          
+ ******  
+ average_power=   7.921061u  from=   0.            to= 130.000000n
+ tda_f_xor1=  54.801958p  targ=  20.093460n   trig=  20.038658n
+ tda_r_xor2=  40.959819p  targ=  50.077275n   trig=  50.036316n
+ tda_r_xor3=  39.109853p  targ=  90.076254n   trig=  90.037144n
+ tda_f_xor4=  20.458014p  targ= 120.057658n   trig= 120.037200n
+ tda_xor1=  54.801958p
+ tda_xor2=  39.109853p
+ tda_xor=  54.801958p
+ tda_r_xnor1=  14.249161p  targ=  20.052907n   trig=  20.038658n
+ tda_f_xnor2=  29.600895p  targ=  50.065917n   trig=  50.036316n
+ tda_f_xnor3=  21.505896p  targ=  90.058650n   trig=  90.037144n
+ tda_r_xnor4=  91.175065p  targ= 120.128375n   trig= 120.037200n
+ tda_xnor1=  29.600895p
+ tda_xnor2=  91.175065p
+ tda_xnor=  91.175065p
+ tdb_r_xor1=  40.255738p  targ=  10.078324n   trig=  10.038068n
+ tdb_r_xor2=  39.404852p  targ=  30.076014n   trig=  30.036609n
+ tdb_f_xor3=  52.111188p  targ=  40.091223n   trig=  40.039112n
+ tdb_f_xor4=  19.954271p  targ=  60.057620n   trig=  60.037665n
+ tdb_xor1=  40.255738p
+ tdb_xor2=  52.111188p
+ tdb_xor=  52.111188p
+ tdb_f_xnor1=  29.292100p  targ=  10.067361n   trig=  10.038068n
+ tdb_f_xnor2=  21.023328p  targ=  30.057633n   trig=  30.036609n
+ tdb_r_xnor3=  11.581659p  targ=  40.050693n   trig=  40.039112n
+ tdb_r_xnor4=  89.976213p  targ=  60.127641n   trig=  60.037665n
+ tdb_xnor1=  29.292100p
+ tdb_xnor2=  89.976213p
+ tdb_xnor=  89.976213p
+ tda=  91.175065p
+ tdb=  89.976213p
+ td=  91.175065p
+ pdp= 722.203261a
+
+          ***** job concluded
+
+   *** parameter k1               =    2.670E+00 ***
+
+ ******  
+ title                                                                          
+  ******  transient analysis               tnom=  25.000 temp=  27.000          
+ ******  
+ average_power=   7.927639u  from=   0.            to= 130.000000n
+ tda_f_xor1=  54.827797p  targ=  20.093490n   trig=  20.038662n
+ tda_r_xor2=  40.862333p  targ=  50.077180n   trig=  50.036318n
+ tda_r_xor3=  39.111821p  targ=  90.076258n   trig=  90.037146n
+ tda_f_xor4=  20.431941p  targ= 120.057633n   trig= 120.037202n
+ tda_xor1=  54.827797p
+ tda_xor2=  39.111821p
+ tda_xor=  54.827797p
+ tda_r_xnor1=  14.250105p  targ=  20.052912n   trig=  20.038662n
+ tda_f_xnor2=  29.602068p  targ=  50.065920n   trig=  50.036318n
+ tda_f_xnor3=  21.506112p  targ=  90.058652n   trig=  90.037146n
+ tda_r_xnor4=  91.143319p  targ= 120.128345n   trig= 120.037202n
+ tda_xnor1=  29.602068p
+ tda_xnor2=  91.143319p
+ tda_xnor=  91.143319p
+ tdb_r_xor1=  40.158509p  targ=  10.078230n   trig=  10.038072n
+ tdb_r_xor2=  39.410075p  targ=  30.076020n   trig=  30.036610n
+ tdb_f_xor3=  52.119309p  targ=  40.091232n   trig=  40.039113n
+ tdb_f_xor4=  19.839581p  targ=  60.057181n   trig=  60.037341n
+ tdb_xor1=  40.158509p
+ tdb_xor2=  52.119309p
+ tdb_xor=  52.119309p
+ tdb_f_xnor1=  29.291863p  targ=  10.067364n   trig=  10.038072n
+ tdb_f_xnor2=  21.024235p  targ=  30.057634n   trig=  30.036610n
+ tdb_r_xnor3=  11.581230p  targ=  40.050694n   trig=  40.039113n
+ tdb_r_xnor4=  89.985257p  targ=  60.127327n   trig=  60.037341n
+ tdb_xnor1=  29.291863p
+ tdb_xnor2=  89.985257p
+ tdb_xnor=  89.985257p
+ tda=  91.143319p
+ tdb=  89.985257p
+ td=  91.143319p
+ pdp= 722.551311a
+
+          ***** job concluded
+
+   *** parameter k1               =    2.680E+00 ***
+
+ ******  
+ title                                                                          
+  ******  transient analysis               tnom=  25.000 temp=  27.000          
+ ******  
+ average_power=   7.927541u  from=   0.            to= 130.000000n
+ tda_f_xor1=  54.853612p  targ=  20.093520n   trig=  20.038666n
+ tda_r_xor2=  40.765555p  targ=  50.077086n   trig=  50.036321n
+ tda_r_xor3=  39.113788p  targ=  90.076262n   trig=  90.037149n
+ tda_f_xor4=  20.405951p  targ= 120.057609n   trig= 120.037203n
+ tda_xor1=  54.853612p
+ tda_xor2=  39.113788p
+ tda_xor=  54.853612p
+ tda_r_xnor1=  14.251047p  targ=  20.052917n   trig=  20.038666n
+ tda_f_xnor2=  29.603241p  targ=  50.065924n   trig=  50.036321n
+ tda_f_xnor3=  21.506328p  targ=  90.058655n   trig=  90.037149n
+ tda_r_xnor4=  91.111684p  targ= 120.128315n   trig= 120.037203n
+ tda_xnor1=  29.603241p
+ tda_xnor2=  91.111684p
+ tda_xnor=  91.111684p
+ tdb_r_xor1=  40.061859p  targ=  10.078137n   trig=  10.038075n
+ tdb_r_xor2=  39.415299p  targ=  30.076026n   trig=  30.036610n
+ tdb_f_xor3=  52.127429p  targ=  40.091241n   trig=  40.039114n
+ tdb_f_xor4=  19.810638p  targ=  60.057156n   trig=  60.037345n
+ tdb_xor1=  40.061859p
+ tdb_xor2=  52.127429p
+ tdb_xor=  52.127429p
+ tdb_f_xnor1=  29.291624p  targ=  10.067367n   trig=  10.038075n
+ tdb_f_xnor2=  21.025143p  targ=  30.057636n   trig=  30.036610n
+ tdb_r_xnor3=  11.580800p  targ=  40.050695n   trig=  40.039114n
+ tdb_r_xnor4=  89.948094p  targ=  60.127293n   trig=  60.037345n
+ tdb_xnor1=  29.291624p
+ tdb_xnor2=  89.948094p
+ tdb_xnor=  89.948094p
+ tda=  91.111684p
+ tdb=  89.948094p
+ td=  91.111684p
+ pdp= 722.291625a
+
+          ***** job concluded
+
+   *** parameter k1               =    2.690E+00 ***
+
+ ******  
+ title                                                                          
+  ******  transient analysis               tnom=  25.000 temp=  27.000          
+ ******  
+ average_power=   7.927442u  from=   0.            to= 130.000000n
+ tda_f_xor1=  54.879404p  targ=  20.093549n   trig=  20.038670n
+ tda_r_xor2=  40.669474p  targ=  50.076993n   trig=  50.036323n
+ tda_r_xor3=  39.115753p  targ=  90.076267n   trig=  90.037151n
+ tda_f_xor4=  20.379995p  targ= 120.057585n   trig= 120.037205n
+ tda_xor1=  54.879404p
+ tda_xor2=  39.115753p
+ tda_xor=  54.879404p
+ tda_r_xnor1=  14.251987p  targ=  20.052922n   trig=  20.038670n
+ tda_f_xnor2=  29.604414p  targ=  50.065927n   trig=  50.036323n
+ tda_f_xnor3=  21.506545p  targ=  90.058657n   trig=  90.037151n
+ tda_r_xnor4=  91.080146p  targ= 120.128285n   trig= 120.037205n
+ tda_xnor1=  29.604414p
+ tda_xnor2=  91.080146p
+ tda_xnor=  91.080146p
+ tdb_r_xor1=  39.965778p  targ=  10.078044n   trig=  10.038078n
+ tdb_r_xor2=  39.420523p  targ=  30.076031n   trig=  30.036611n
+ tdb_f_xor3=  52.135548p  targ=  40.091250n   trig=  40.039115n
+ tdb_f_xor4=  19.780045p  targ=  60.057130n   trig=  60.037350n
+ tdb_xor1=  39.965778p
+ tdb_xor2=  52.135548p
+ tdb_xor=  52.135548p
+ tdb_f_xnor1=  29.291384p  targ=  10.067370n   trig=  10.038078n
+ tdb_f_xnor2=  21.026051p  targ=  30.057637n   trig=  30.036611n
+ tdb_r_xnor3=  11.580371p  targ=  40.050695n   trig=  40.039115n
+ tdb_r_xnor4=  89.910049p  targ=  60.127260n   trig=  60.037350n
+ tdb_xnor1=  29.291384p
+ tdb_xnor2=  89.910049p
+ tdb_xnor=  89.910049p
+ tda=  91.080146p
+ tdb=  89.910049p
+ td=  91.080146p
+ pdp= 722.032574a
+
+          ***** job concluded
+
+   *** parameter k1               =    2.700E+00 ***
+
+ ******  
+ title                                                                          
+  ******  transient analysis               tnom=  25.000 temp=  27.000          
+ ******  
+ average_power=   7.927346u  from=   0.            to= 130.000000n
+ tda_f_xor1=  54.905174p  targ=  20.093579n   trig=  20.038674n
+ tda_r_xor2=  40.574079p  targ=  50.076900n   trig=  50.036326n
+ tda_r_xor3=  39.117717p  targ=  90.076271n   trig=  90.037153n
+ tda_f_xor4=  20.354098p  targ= 120.057561n   trig= 120.037206n
+ tda_xor1=  54.905174p
+ tda_xor2=  39.117717p
+ tda_xor=  54.905174p
+ tda_r_xnor1=  14.252926p  targ=  20.052927n   trig=  20.038674n
+ tda_f_xnor2=  29.605587p  targ=  50.065931n   trig=  50.036326n
+ tda_f_xnor3=  21.506762p  targ=  90.058660n   trig=  90.037153n
+ tda_r_xnor4=  91.048712p  targ= 120.128255n   trig= 120.037206n
+ tda_xnor1=  29.605587p
+ tda_xnor2=  91.048712p
+ tda_xnor=  91.048712p
+ tdb_r_xor1=  39.870255p  targ=  10.077952n   trig=  10.038081n
+ tdb_r_xor2=  39.425678p  targ=  30.076037n   trig=  30.036611n
+ tdb_f_xor3=  52.143667p  targ=  40.091260n   trig=  40.039116n
+ tdb_f_xor4=  19.749493p  targ=  60.057104n   trig=  60.037355n
+ tdb_xor1=  39.870255p
+ tdb_xor2=  52.143667p
+ tdb_xor=  52.143667p
+ tdb_f_xnor1=  29.291144p  targ=  10.067373n   trig=  10.038081n
+ tdb_f_xnor2=  21.026959p  targ=  30.057638n   trig=  30.036611n
+ tdb_r_xnor3=  11.579942p  targ=  40.050696n   trig=  40.039116n
+ tdb_r_xnor4=  89.872145p  targ=  60.127227n   trig=  60.037355n
+ tdb_xnor1=  29.291144p
+ tdb_xnor2=  89.872145p
+ tdb_xnor=  89.872145p
+ tda=  91.048712p
+ tdb=  89.872145p
+ td=  91.048712p
+ pdp= 721.774666a
+
+   meas_variable = average_power   
+   mean  =   7.9270u      varian =  10.0748a    
+   sigma =   3.1741n      avgdev =   2.1322n    
+   max   =   7.9289u      min    =   7.9183u    
+    1-sigma =   3.1741n     median =   7.9286u    
+
+   meas_variable = tda_f_xor1      
+   mean  =  54.6460p      varian = 2.601e-26    
+   sigma = 161.2741f      avgdev = 136.1661f    
+   max   =  54.9052p      min    =  54.3853p    
+    1-sigma = 161.2741f     median =  54.6724p    
+
+   meas_variable = tda_r_xor2      
+   mean  =  41.6178p      varian = 4.540e-25    
+   sigma = 673.8057f      avgdev = 570.9436f    
+   max   =  42.7306p      min    =  40.5741p    
+    1-sigma = 673.8057f     median =  41.7113p    
+
+   meas_variable = tda_r_xor3      
+   mean  =  39.0980p      varian = 1.506e-28    
+   sigma =  12.2700f      avgdev =  10.3595f    
+   max   =  39.1177p      min    =  39.0782p    
+    1-sigma =  12.2700f     median =  39.1000p    
+
+   meas_variable = tda_f_xor4      
+   mean  =  20.6172p      varian = 2.712e-26    
+   sigma = 164.6932f      avgdev = 139.0487f    
+   max   =  20.8849p      min    =  20.3541p    
+    1-sigma = 164.6932f     median =  20.6422p    
+
+   meas_variable = tda_xor1        
+   mean  =  54.6460p      varian = 2.601e-26    
+   sigma = 161.2741f      avgdev = 136.1661f    
+   max   =  54.9052p      min    =  54.3853p    
+    1-sigma = 161.2741f     median =  54.6724p    
+
+   meas_variable = tda_xor2        
+   mean  =  39.0980p      varian = 1.506e-28    
+   sigma =  12.2700f      avgdev =  10.3595f    
+   max   =  39.1177p      min    =  39.0782p    
+    1-sigma =  12.2700f     median =  39.1000p    
+
+   meas_variable = tda_xor         
+   mean  =  54.6460p      varian = 2.601e-26    
+   sigma = 161.2741f      avgdev = 136.1661f    
+   max   =  54.9052p      min    =  54.3853p    
+    1-sigma = 161.2741f     median =  54.6724p    
+
+   meas_variable = tda_r_xnor1     
+   mean  =  14.2435p      varian =   0.         
+   sigma =   5.9062f      avgdev =   4.9876f    
+   max   =  14.2529p      min    =  14.2339p    
+    1-sigma =   5.9062f     median =  14.2444p    
+
+   meas_variable = tda_f_xnor2     
+   mean  =  29.5938p      varian =   0.         
+   sigma =   7.3261f      avgdev =   6.1845f    
+   max   =  29.6056p      min    =  29.5820p    
+    1-sigma =   7.3261f     median =  29.5950p    
+
+   meas_variable = tda_f_xnor3     
+   mean  =  21.5046p      varian =   0.         
+   sigma =   1.3314f      avgdev =   1.1242f    
+   max   =  21.5068p      min    =  21.5025p    
+    1-sigma =   1.3314f     median =  21.5048p    
+
+   meas_variable = tda_r_xnor4     
+   mean  =  91.3695p      varian = 4.041e-26    
+   sigma = 201.0187f      avgdev = 169.8040f    
+   max   =  91.6967p      min    =  91.0487p    
+    1-sigma = 201.0187f     median =  91.4003p    
+
+   meas_variable = tda_xnor1       
+   mean  =  29.5938p      varian =   0.         
+   sigma =   7.3261f      avgdev =   6.1845f    
+   max   =  29.6056p      min    =  29.5820p    
+    1-sigma =   7.3261f     median =  29.5950p    
+
+   meas_variable = tda_xnor2       
+   mean  =  91.3695p      varian = 4.041e-26    
+   sigma = 201.0187f      avgdev = 169.8040f    
+   max   =  91.6967p      min    =  91.0487p    
+    1-sigma = 201.0187f     median =  91.4003p    
+
+   meas_variable = tda_xnor        
+   mean  =  91.3695p      varian = 4.041e-26    
+   sigma = 201.0187f      avgdev = 169.8040f    
+   max   =  91.6967p      min    =  91.0487p    
+    1-sigma = 201.0187f     median =  91.4003p    
+
+   meas_variable = tdb_r_xor1      
+   mean  =  40.8639p      varian = 3.958e-25    
+   sigma = 629.1596f      avgdev = 531.5136f    
+   max   =  41.8993p      min    =  39.8703p    
+    1-sigma = 629.1596f     median =  40.9534p    
+
+   meas_variable = tdb_r_xor2      
+   mean  =  39.3735p      varian = 1.048e-27    
+   sigma =  32.3802f      avgdev =  27.3370f    
+   max   =  39.4257p      min    =  39.3214p    
+    1-sigma =  32.3802f     median =  39.3787p    
+
+   meas_variable = tdb_f_xor3      
+   mean  =  52.0624p      varian = 2.543e-27    
+   sigma =  50.4247f      avgdev =  42.5691f    
+   max   =  52.1437p      min    =  51.9811p    
+    1-sigma =  50.4247f     median =  52.0706p    
+
+   meas_variable = tdb_f_xor4      
+   mean  =  20.1107p      varian = 8.078e-26    
+   sigma = 284.2116f      avgdev = 238.7214f    
+   max   =  20.7032p      min    =  19.7247p    
+    1-sigma = 284.2116f     median =  20.1710p    
+
+   meas_variable = tdb_xor1        
+   mean  =  40.8639p      varian = 3.958e-25    
+   sigma = 629.1596f      avgdev = 531.5136f    
+   max   =  41.8993p      min    =  39.8703p    
+    1-sigma = 629.1596f     median =  40.9534p    
+
+   meas_variable = tdb_xor2        
+   mean  =  52.0624p      varian = 2.543e-27    
+   sigma =  50.4247f      avgdev =  42.5691f    
+   max   =  52.1437p      min    =  51.9811p    
+    1-sigma =  50.4247f     median =  52.0706p    
+
+   meas_variable = tdb_xor         
+   mean  =  52.0624p      varian = 2.543e-27    
+   sigma =  50.4247f      avgdev =  42.5691f    
+   max   =  52.1437p      min    =  51.9811p    
+    1-sigma =  50.4247f     median =  52.0706p    
+
+   meas_variable = tdb_f_xnor1     
+   mean  =  29.2935p      varian =   0.         
+   sigma =   1.4143f      avgdev =   1.1963f    
+   max   =  29.2957p      min    =  29.2911p    
+    1-sigma =   1.4143f     median =  29.2937p    
+
+   meas_variable = tdb_f_xnor2     
+   mean  =  21.0179p      varian =   0.         
+   sigma =   5.6098f      avgdev =   4.7362f    
+   max   =  21.0270p      min    =  21.0089p    
+    1-sigma =   5.6098f     median =  21.0188p    
+
+   meas_variable = tdb_r_xnor3     
+   mean  =  11.5842p      varian =   0.         
+   sigma =   2.6752f      avgdev =   2.2586f    
+   max   =  11.5886p      min    =  11.5799p    
+    1-sigma =   2.6752f     median =  11.5847p    
+
+   meas_variable = tdb_r_xnor4     
+   mean  =  90.2091p      varian = 8.154e-26    
+   sigma = 285.5452f      avgdev = 253.5702f    
+   max   =  90.6166p      min    =  89.7651p    
+    1-sigma = 285.5452f     median =  90.2968p    
+
+   meas_variable = tdb_xnor1       
+   mean  =  29.2935p      varian =   0.         
+   sigma =   1.4143f      avgdev =   1.1963f    
+   max   =  29.2957p      min    =  29.2911p    
+    1-sigma =   1.4143f     median =  29.2937p    
+
+   meas_variable = tdb_xnor2       
+   mean  =  90.2091p      varian = 8.154e-26    
+   sigma = 285.5452f      avgdev = 253.5702f    
+   max   =  90.6166p      min    =  89.7651p    
+    1-sigma = 285.5452f     median =  90.2968p    
+
+   meas_variable = tdb_xnor        
+   mean  =  90.2091p      varian = 8.154e-26    
+   sigma = 285.5452f      avgdev = 253.5702f    
+   max   =  90.6166p      min    =  89.7651p    
+    1-sigma = 285.5452f     median =  90.2968p    
+
+   meas_variable = tda             
+   mean  =  91.3695p      varian = 4.041e-26    
+   sigma = 201.0187f      avgdev = 169.8040f    
+   max   =  91.6967p      min    =  91.0487p    
+    1-sigma = 201.0187f     median =  91.4003p    
+
+   meas_variable = tdb             
+   mean  =  90.2091p      varian = 8.154e-26    
+   sigma = 285.5452f      avgdev = 253.5702f    
+   max   =  90.6166p      min    =  89.7651p    
+    1-sigma = 285.5452f     median =  90.2968p    
+
+   meas_variable = td              
+   mean  =  91.3695p      varian = 4.041e-26    
+   sigma = 201.0187f      avgdev = 169.8040f    
+   max   =  91.6967p      min    =  91.0487p    
+    1-sigma = 201.0187f     median =  91.4003p    
+
+   meas_variable = pdp             
+   mean  = 724.2824a      varian =   0.         
+   sigma =   1.6666a      avgdev =   1.4380a    
+   max   = 726.7812a      min    = 721.7747a    
+    1-sigma =   1.6666a     median = 724.6869a    
+ 
+
+          ***** job concluded
+1****** HSPICE -- A-2008.03 32-BIT (Feb 26 2008) winnt ******                   
+ ******  
+ title                                                                          
+  ******  job statistics summary           tnom=  25.000 temp=  27.000          
+ ******  
+
+           total memory used        352 kbytes
+
+  # nodes =      17 # elements=      30
+  # diodes=       0 # bjts    =       0 # jfets   =       0 # mosfets =      26
+  # va device =       0
+
+    analysis           time    # points   tot. iter  conv.iter
+
+    op point           0.05           1         210
+    transient          2.30      273021       25225        9372 rev=       498
+    readin             0.02
+    errchk             0.00
+    setup              0.01
+    output             0.00
+           total cpu time          2.60 seconds
+           total elapsed time         3 seconds
+               job started at  00:31:20 12/04/2015
+               job ended   at  00:31:23 12/04/2015
+
+
+ Init: hspice initialization file: C:\synopsys\Hspice_A-2008.03\hspice.ini

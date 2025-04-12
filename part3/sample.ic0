@@ -1,0 +1,29 @@
+* "simulator" "HSPICE" 
+* "version" "A-2008.03 32-BIT"
+* "format" "HSP"
+* "rundate" "21:09:13 12/03/2015 "
+* "netlist" "c:\users\mahbod\desktop\part3\sample.sp "
+* "runtitle" "title"
+* time =    0.            
+* temperature =   27.0000        
+*** BEGIN: Saved Operating Point ***                     
+.option 
++ gmindc=   1.0000p       
+.nodeset
++ a =   1.3328u       
++ a_in =   0.            
++ a_n =   1.8000        
++ an =   1.8000        
++ an_in =   1.8000        
++ an_n =   2.1193u       
++ b =   1.3328u       
++ b_in =   0.            
++ b_n =   1.8000        
++ vdd =   1.8000        
++ xnor =   1.8000        
++ xnorb =   2.1196u       
++ xor =   3.0481u       
++ xorb =   1.8000        
++ y =  13.7250n       
++ yn =   1.8000        
+***   END: Saved Operating Point ***                     

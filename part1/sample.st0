@@ -1,0 +1,365 @@
+***** HSPICE -- A-2008.03 32-BIT (Feb 26 2008) winnt ******
+ Input File: c:\users\mahbod\desktop\part1\sample.sp
+ lic:
+ lic: FLEXlm: v8.5b
+ lic: USER:   mahbod               HOSTNAME: mahbod-PC
+ lic: HOSTID: "b2004ec1078e 00ffe1529411 00ffd3964207 90004ec1078e f0bf97607ec5
+ lic: Using FLEXlm license file:
+ lic: C:\Flexlm\Hspice_2007-09.lic
+ lic: Checkout 1 hspice
+ lic: License/Maintenance for hspice will expire on 31-dec-2020/2007.9
+ lic: NODE LOCKED license on hostid "b2004ec1078e 00ffe1529411 00ffd3964207 9000
+ lic:
+ Init: hspice initialization file: C:\synopsys\Hspice_A-2008.03\hspice.ini
+ init: begin read circuit files,  cpu clock=  4.80E-02
+       option post
+       option nomod
+       option measdg   =     6.00
+ init: end read circuit files,  cpu clock=  5.80E-02 memory=    282 kb
+ init: begin check errors,  cpu clock=  5.80E-02
+ init: end check errors,  cpu clock=  6.20E-02 memory=    315 kb
+ init: begin setup matrix, pivot=    10 cpu clock=  6.20E-02
+       establish matrix -- done,  cpu clock=  6.90E-02 memory=    320 kb
+       re-order matrix -- done,  cpu clock=  7.20E-02 memory=    321 kb
+ init: end setup matrix,  cpu clock=  7.50E-02 memory=    352 kb
+ sweep: parameter       parameter1       begin, #sweeps =  21
+ parameter: k1              =    2.50E+00
+ dcop: begin dcop,  cpu clock=  8.40E-02
+ dcop: end dcop,  cpu clock=  8.80E-02 memory=    352 kb  tot_iter=      10
+ output: c:\users\mahbod\desktop\part1\sample.mt0
+ sweep: tran tran1    begin, stop_t=  1.30E-07 #sweeps=**** cpu clock=  9.50E-02
+ tran: time= 1.4483E-08 tot_iter=     110 conv_iter=      43 cpu clock= 1.04E-01
+ tran: time= 2.7802E-08 tot_iter=     225 conv_iter=      84 cpu clock= 1.14E-01
+ tran: time= 4.0000E-08 tot_iter=     331 conv_iter=     123 cpu clock= 1.24E-01
+ tran: time= 5.2660E-08 tot_iter=     549 conv_iter=     202 cpu clock= 1.43E-01
+ tran: time= 6.6552E-08 tot_iter=     663 conv_iter=     244 cpu clock= 1.53E-01
+ tran: time= 8.0000E-08 tot_iter=     743 conv_iter=     275 cpu clock= 1.62E-01
+ tran: time= 9.1353E-08 tot_iter=     918 conv_iter=     339 cpu clock= 1.78E-01
+ tran: time= 1.0542E-07 tot_iter=    1002 conv_iter=     371 cpu clock= 1.86E-01
+ tran: time= 1.1778E-07 tot_iter=    1081 conv_iter=     401 cpu clock= 1.96E-01
+ tran: time= 1.3000E-07 tot_iter=    1200 conv_iter=     444 cpu clock= 2.06E-01
+ sweep: tran tran1    end,  cpu clock=  2.09E-01 memory=    352 kb
+ parameter: k1              =    2.51E+00
+ dcop: begin dcop,  cpu clock=  2.14E-01
+ dcop: end dcop,  cpu clock=  2.17E-01 memory=    352 kb  tot_iter=      20
+ output: c:\users\mahbod\desktop\part1\sample.mt0
+ sweep: tran tran2    begin, stop_t=  1.30E-07 #sweeps=**** cpu clock=  2.22E-01
+ tran: time= 1.4531E-08 tot_iter=     110 conv_iter=      43 cpu clock= 2.31E-01
+ tran: time= 2.7800E-08 tot_iter=     225 conv_iter=      84 cpu clock= 2.41E-01
+ tran: time= 4.0000E-08 tot_iter=     331 conv_iter=     123 cpu clock= 2.50E-01
+ tran: time= 5.2605E-08 tot_iter=     549 conv_iter=     202 cpu clock= 2.67E-01
+ tran: time= 6.5632E-08 tot_iter=     666 conv_iter=     245 cpu clock= 2.77E-01
+ tran: time= 8.0000E-08 tot_iter=     746 conv_iter=     276 cpu clock= 2.86E-01
+ tran: time= 9.1353E-08 tot_iter=     921 conv_iter=     340 cpu clock= 3.01E-01
+ tran: time= 1.0542E-07 tot_iter=    1005 conv_iter=     372 cpu clock= 3.09E-01
+ tran: time= 1.1777E-07 tot_iter=    1084 conv_iter=     402 cpu clock= 3.17E-01
+ tran: time= 1.3000E-07 tot_iter=    1203 conv_iter=     445 cpu clock= 3.28E-01
+ sweep: tran tran2    end,  cpu clock=  3.30E-01 memory=    352 kb
+ parameter: k1              =    2.52E+00
+ dcop: begin dcop,  cpu clock=  3.35E-01
+ dcop: end dcop,  cpu clock=  3.38E-01 memory=    352 kb  tot_iter=      30
+ output: c:\users\mahbod\desktop\part1\sample.mt0
+ sweep: tran tran3    begin, stop_t=  1.30E-07 #sweeps=**** cpu clock=  3.43E-01
+ tran: time= 1.4575E-08 tot_iter=     109 conv_iter=      43 cpu clock= 3.52E-01
+ tran: time= 2.7798E-08 tot_iter=     224 conv_iter=      84 cpu clock= 3.63E-01
+ tran: time= 4.0000E-08 tot_iter=     330 conv_iter=     123 cpu clock= 3.72E-01
+ tran: time= 5.2546E-08 tot_iter=     548 conv_iter=     202 cpu clock= 3.90E-01
+ tran: time= 6.5615E-08 tot_iter=     665 conv_iter=     245 cpu clock= 4.00E-01
+ tran: time= 8.0000E-08 tot_iter=     745 conv_iter=     276 cpu clock= 4.08E-01
+ tran: time= 9.1353E-08 tot_iter=     920 conv_iter=     340 cpu clock= 4.22E-01
+ tran: time= 1.0542E-07 tot_iter=    1004 conv_iter=     372 cpu clock= 4.30E-01
+ tran: time= 1.1777E-07 tot_iter=    1083 conv_iter=     402 cpu clock= 4.38E-01
+ tran: time= 1.3000E-07 tot_iter=    1202 conv_iter=     445 cpu clock= 4.48E-01
+ sweep: tran tran3    end,  cpu clock=  4.50E-01 memory=    352 kb
+ parameter: k1              =    2.53E+00
+ dcop: begin dcop,  cpu clock=  4.56E-01
+ dcop: end dcop,  cpu clock=  4.59E-01 memory=    352 kb  tot_iter=      40
+ output: c:\users\mahbod\desktop\part1\sample.mt0
+ sweep: tran tran4    begin, stop_t=  1.30E-07 #sweeps=**** cpu clock=  4.64E-01
+ tran: time= 1.4629E-08 tot_iter=     109 conv_iter=      43 cpu clock= 4.73E-01
+ tran: time= 2.7795E-08 tot_iter=     224 conv_iter=      84 cpu clock= 4.83E-01
+ tran: time= 4.0000E-08 tot_iter=     330 conv_iter=     123 cpu clock= 4.92E-01
+ tran: time= 5.2482E-08 tot_iter=     548 conv_iter=     202 cpu clock= 5.08E-01
+ tran: time= 6.5598E-08 tot_iter=     665 conv_iter=     245 cpu clock= 5.19E-01
+ tran: time= 8.0000E-08 tot_iter=     745 conv_iter=     276 cpu clock= 5.27E-01
+ tran: time= 9.1353E-08 tot_iter=     920 conv_iter=     340 cpu clock= 5.42E-01
+ tran: time= 1.0541E-07 tot_iter=    1004 conv_iter=     372 cpu clock= 5.51E-01
+ tran: time= 1.1776E-07 tot_iter=    1083 conv_iter=     402 cpu clock= 5.59E-01
+ tran: time= 1.3000E-07 tot_iter=    1202 conv_iter=     445 cpu clock= 5.69E-01
+ sweep: tran tran4    end,  cpu clock=  5.72E-01 memory=    352 kb
+ parameter: k1              =    2.54E+00
+ dcop: begin dcop,  cpu clock=  5.77E-01
+ dcop: end dcop,  cpu clock=  5.80E-01 memory=    352 kb  tot_iter=      50
+ output: c:\users\mahbod\desktop\part1\sample.mt0
+ sweep: tran tran5    begin, stop_t=  1.30E-07 #sweeps=**** cpu clock=  5.85E-01
+ tran: time= 1.4685E-08 tot_iter=     109 conv_iter=      43 cpu clock= 5.93E-01
+ tran: time= 2.7791E-08 tot_iter=     224 conv_iter=      84 cpu clock= 6.03E-01
+ tran: time= 4.0000E-08 tot_iter=     330 conv_iter=     123 cpu clock= 6.13E-01
+ tran: time= 5.2415E-08 tot_iter=     548 conv_iter=     202 cpu clock= 6.30E-01
+ tran: time= 6.5582E-08 tot_iter=     665 conv_iter=     245 cpu clock= 6.41E-01
+ tran: time= 8.0000E-08 tot_iter=     745 conv_iter=     276 cpu clock= 6.49E-01
+ tran: time= 9.1353E-08 tot_iter=     920 conv_iter=     340 cpu clock= 6.64E-01
+ tran: time= 1.0541E-07 tot_iter=    1004 conv_iter=     372 cpu clock= 6.72E-01
+ tran: time= 1.1776E-07 tot_iter=    1083 conv_iter=     402 cpu clock= 6.80E-01
+ tran: time= 1.3000E-07 tot_iter=    1202 conv_iter=     445 cpu clock= 6.90E-01
+ sweep: tran tran5    end,  cpu clock=  6.93E-01 memory=    352 kb
+ parameter: k1              =    2.55E+00
+ dcop: begin dcop,  cpu clock=  6.98E-01
+ dcop: end dcop,  cpu clock=  7.00E-01 memory=    352 kb  tot_iter=      60
+ output: c:\users\mahbod\desktop\part1\sample.mt0
+ sweep: tran tran6    begin, stop_t=  1.30E-07 #sweeps=**** cpu clock=  7.05E-01
+ tran: time= 1.4732E-08 tot_iter=     109 conv_iter=      43 cpu clock= 7.13E-01
+ tran: time= 2.7787E-08 tot_iter=     224 conv_iter=      84 cpu clock= 7.23E-01
+ tran: time= 4.0000E-08 tot_iter=     330 conv_iter=     123 cpu clock= 7.33E-01
+ tran: time= 5.2347E-08 tot_iter=     548 conv_iter=     202 cpu clock= 7.49E-01
+ tran: time= 6.5533E-08 tot_iter=     664 conv_iter=     245 cpu clock= 7.59E-01
+ tran: time= 8.0000E-08 tot_iter=     744 conv_iter=     276 cpu clock= 7.67E-01
+ tran: time= 9.1353E-08 tot_iter=     919 conv_iter=     340 cpu clock= 7.82E-01
+ tran: time= 1.0541E-07 tot_iter=    1003 conv_iter=     372 cpu clock= 7.90E-01
+ tran: time= 1.1775E-07 tot_iter=    1082 conv_iter=     402 cpu clock= 7.98E-01
+ tran: time= 1.3000E-07 tot_iter=    1200 conv_iter=     445 cpu clock= 8.09E-01
+ sweep: tran tran6    end,  cpu clock=  8.12E-01 memory=    352 kb
+ parameter: k1              =    2.56E+00
+ dcop: begin dcop,  cpu clock=  8.16E-01
+ dcop: end dcop,  cpu clock=  8.19E-01 memory=    352 kb  tot_iter=      70
+ output: c:\users\mahbod\desktop\part1\sample.mt0
+ sweep: tran tran7    begin, stop_t=  1.30E-07 #sweeps=**** cpu clock=  8.24E-01
+ tran: time= 1.4793E-08 tot_iter=     109 conv_iter=      43 cpu clock= 8.33E-01
+ tran: time= 2.7782E-08 tot_iter=     224 conv_iter=      84 cpu clock= 8.44E-01
+ tran: time= 4.0000E-08 tot_iter=     330 conv_iter=     123 cpu clock= 8.53E-01
+ tran: time= 5.2279E-08 tot_iter=     548 conv_iter=     202 cpu clock= 8.70E-01
+ tran: time= 6.5517E-08 tot_iter=     664 conv_iter=     245 cpu clock= 8.80E-01
+ tran: time= 8.0000E-08 tot_iter=     744 conv_iter=     276 cpu clock= 8.88E-01
+ tran: time= 9.1353E-08 tot_iter=     919 conv_iter=     340 cpu clock= 9.04E-01
+ tran: time= 1.0525E-07 tot_iter=    1002 conv_iter=     372 cpu clock= 9.12E-01
+ tran: time= 1.1775E-07 tot_iter=    1081 conv_iter=     402 cpu clock= 9.20E-01
+ tran: time= 1.3000E-07 tot_iter=    1199 conv_iter=     445 cpu clock= 9.31E-01
+ sweep: tran tran7    end,  cpu clock=  9.33E-01 memory=    352 kb
+ parameter: k1              =    2.57E+00
+ dcop: begin dcop,  cpu clock=  9.38E-01
+ dcop: end dcop,  cpu clock=  9.41E-01 memory=    352 kb  tot_iter=      80
+ output: c:\users\mahbod\desktop\part1\sample.mt0
+ sweep: tran tran8    begin, stop_t=  1.30E-07 #sweeps=**** cpu clock=  9.46E-01
+ tran: time= 1.4857E-08 tot_iter=     109 conv_iter=      43 cpu clock= 9.54E-01
+ tran: time= 2.7776E-08 tot_iter=     224 conv_iter=      84 cpu clock= 9.64E-01
+ tran: time= 4.0000E-08 tot_iter=     330 conv_iter=     123 cpu clock= 9.74E-01
+ tran: time= 5.2206E-08 tot_iter=     547 conv_iter=     202 cpu clock= 9.91E-01
+ tran: time= 6.5503E-08 tot_iter=     663 conv_iter=     245 cpu clock= 1.00E+00
+ tran: time= 8.0000E-08 tot_iter=     743 conv_iter=     276 cpu clock= 1.01E+00
+ tran: time= 9.1353E-08 tot_iter=     918 conv_iter=     340 cpu clock= 1.02E+00
+ tran: time= 1.0525E-07 tot_iter=    1001 conv_iter=     372 cpu clock= 1.03E+00
+ tran: time= 1.1774E-07 tot_iter=    1080 conv_iter=     402 cpu clock= 1.04E+00
+ tran: time= 1.3000E-07 tot_iter=    1198 conv_iter=     445 cpu clock= 1.05E+00
+ sweep: tran tran8    end,  cpu clock=  1.05E+00 memory=    352 kb
+ parameter: k1              =    2.58E+00
+ dcop: begin dcop,  cpu clock=  1.06E+00
+ dcop: end dcop,  cpu clock=  1.06E+00 memory=    352 kb  tot_iter=      90
+ output: c:\users\mahbod\desktop\part1\sample.mt0
+ sweep: tran tran9    begin, stop_t=  1.30E-07 #sweeps=**** cpu clock=  1.07E+00
+ tran: time= 1.4919E-08 tot_iter=     110 conv_iter=      43 cpu clock= 1.07E+00
+ tran: time= 2.7769E-08 tot_iter=     225 conv_iter=      84 cpu clock= 1.08E+00
+ tran: time= 4.0000E-08 tot_iter=     331 conv_iter=     123 cpu clock= 1.09E+00
+ tran: time= 5.2172E-08 tot_iter=     548 conv_iter=     202 cpu clock= 1.11E+00
+ tran: time= 6.5489E-08 tot_iter=     664 conv_iter=     245 cpu clock= 1.12E+00
+ tran: time= 8.0000E-08 tot_iter=     744 conv_iter=     276 cpu clock= 1.13E+00
+ tran: time= 9.1353E-08 tot_iter=     919 conv_iter=     340 cpu clock= 1.15E+00
+ tran: time= 1.0525E-07 tot_iter=    1002 conv_iter=     372 cpu clock= 1.15E+00
+ tran: time= 1.1774E-07 tot_iter=    1081 conv_iter=     402 cpu clock= 1.16E+00
+ tran: time= 1.3000E-07 tot_iter=    1199 conv_iter=     445 cpu clock= 1.17E+00
+ sweep: tran tran9    end,  cpu clock=  1.17E+00 memory=    352 kb
+ parameter: k1              =    2.59E+00
+ dcop: begin dcop,  cpu clock=  1.18E+00
+ dcop: end dcop,  cpu clock=  1.18E+00 memory=    352 kb  tot_iter=     100
+ output: c:\users\mahbod\desktop\part1\sample.mt0
+ sweep: tran tran10   begin, stop_t=  1.30E-07 #sweeps=**** cpu clock=  1.19E+00
+ tran: time= 1.4989E-08 tot_iter=     110 conv_iter=      43 cpu clock= 1.20E+00
+ tran: time= 2.7761E-08 tot_iter=     225 conv_iter=      84 cpu clock= 1.21E+00
+ tran: time= 4.0000E-08 tot_iter=     331 conv_iter=     123 cpu clock= 1.21E+00
+ tran: time= 5.2158E-08 tot_iter=     548 conv_iter=     202 cpu clock= 1.23E+00
+ tran: time= 6.5475E-08 tot_iter=     664 conv_iter=     245 cpu clock= 1.24E+00
+ tran: time= 8.0000E-08 tot_iter=     744 conv_iter=     276 cpu clock= 1.25E+00
+ tran: time= 9.1353E-08 tot_iter=     919 conv_iter=     340 cpu clock= 1.26E+00
+ tran: time= 1.0525E-07 tot_iter=    1002 conv_iter=     372 cpu clock= 1.27E+00
+ tran: time= 1.1773E-07 tot_iter=    1081 conv_iter=     402 cpu clock= 1.28E+00
+ tran: time= 1.3000E-07 tot_iter=    1199 conv_iter=     445 cpu clock= 1.29E+00
+ sweep: tran tran10   end,  cpu clock=  1.29E+00 memory=    352 kb
+ parameter: k1              =    2.60E+00
+ dcop: begin dcop,  cpu clock=  1.30E+00
+ dcop: end dcop,  cpu clock=  1.30E+00 memory=    352 kb  tot_iter=     110
+ output: c:\users\mahbod\desktop\part1\sample.mt0
+ sweep: tran tran11   begin, stop_t=  1.30E-07 #sweeps=**** cpu clock=  1.31E+00
+ tran: time= 1.4984E-08 tot_iter=     110 conv_iter=      43 cpu clock= 1.32E+00
+ tran: time= 2.7754E-08 tot_iter=     225 conv_iter=      84 cpu clock= 1.33E+00
+ tran: time= 4.0000E-08 tot_iter=     331 conv_iter=     123 cpu clock= 1.34E+00
+ tran: time= 5.2145E-08 tot_iter=     548 conv_iter=     202 cpu clock= 1.35E+00
+ tran: time= 6.5463E-08 tot_iter=     664 conv_iter=     245 cpu clock= 1.36E+00
+ tran: time= 8.0000E-08 tot_iter=     744 conv_iter=     276 cpu clock= 1.37E+00
+ tran: time= 9.1353E-08 tot_iter=     919 conv_iter=     340 cpu clock= 1.39E+00
+ tran: time= 1.0525E-07 tot_iter=    1002 conv_iter=     372 cpu clock= 1.39E+00
+ tran: time= 1.1773E-07 tot_iter=    1081 conv_iter=     402 cpu clock= 1.40E+00
+ tran: time= 1.3000E-07 tot_iter=    1199 conv_iter=     445 cpu clock= 1.41E+00
+ sweep: tran tran11   end,  cpu clock=  1.42E+00 memory=    352 kb
+ parameter: k1              =    2.61E+00
+ dcop: begin dcop,  cpu clock=  1.42E+00
+ dcop: end dcop,  cpu clock=  1.42E+00 memory=    352 kb  tot_iter=     120
+ output: c:\users\mahbod\desktop\part1\sample.mt0
+ sweep: tran tran12   begin, stop_t=  1.30E-07 #sweeps=**** cpu clock=  1.43E+00
+ tran: time= 1.4940E-08 tot_iter=     110 conv_iter=      43 cpu clock= 1.44E+00
+ tran: time= 2.7745E-08 tot_iter=     225 conv_iter=      84 cpu clock= 1.45E+00
+ tran: time= 4.0000E-08 tot_iter=     331 conv_iter=     123 cpu clock= 1.46E+00
+ tran: time= 5.2132E-08 tot_iter=     548 conv_iter=     202 cpu clock= 1.47E+00
+ tran: time= 6.5451E-08 tot_iter=     664 conv_iter=     245 cpu clock= 1.48E+00
+ tran: time= 8.0000E-08 tot_iter=     744 conv_iter=     276 cpu clock= 1.49E+00
+ tran: time= 9.1353E-08 tot_iter=     919 conv_iter=     340 cpu clock= 1.50E+00
+ tran: time= 1.0525E-07 tot_iter=    1002 conv_iter=     372 cpu clock= 1.51E+00
+ tran: time= 1.1773E-07 tot_iter=    1081 conv_iter=     402 cpu clock= 1.52E+00
+ tran: time= 1.3000E-07 tot_iter=    1199 conv_iter=     445 cpu clock= 1.53E+00
+ sweep: tran tran12   end,  cpu clock=  1.53E+00 memory=    352 kb
+ parameter: k1              =    2.62E+00
+ dcop: begin dcop,  cpu clock=  1.54E+00
+ dcop: end dcop,  cpu clock=  1.54E+00 memory=    352 kb  tot_iter=     130
+ output: c:\users\mahbod\desktop\part1\sample.mt0
+ sweep: tran tran13   begin, stop_t=  1.30E-07 #sweeps=**** cpu clock=  1.55E+00
+ tran: time= 1.4902E-08 tot_iter=     110 conv_iter=      43 cpu clock= 1.56E+00
+ tran: time= 2.7737E-08 tot_iter=     225 conv_iter=      84 cpu clock= 1.57E+00
+ tran: time= 4.0000E-08 tot_iter=     331 conv_iter=     123 cpu clock= 1.58E+00
+ tran: time= 5.2120E-08 tot_iter=     548 conv_iter=     202 cpu clock= 1.59E+00
+ tran: time= 6.6598E-08 tot_iter=     663 conv_iter=     246 cpu clock= 1.60E+00
+ tran: time= 8.0000E-08 tot_iter=     741 conv_iter=     276 cpu clock= 1.61E+00
+ tran: time= 9.1352E-08 tot_iter=     916 conv_iter=     340 cpu clock= 1.63E+00
+ tran: time= 1.0525E-07 tot_iter=     999 conv_iter=     372 cpu clock= 1.64E+00
+ tran: time= 1.1772E-07 tot_iter=    1078 conv_iter=     402 cpu clock= 1.64E+00
+ tran: time= 1.3000E-07 tot_iter=    1196 conv_iter=     445 cpu clock= 1.65E+00
+ sweep: tran tran13   end,  cpu clock=  1.66E+00 memory=    352 kb
+ parameter: k1              =    2.63E+00
+ dcop: begin dcop,  cpu clock=  1.66E+00
+ dcop: end dcop,  cpu clock=  1.66E+00 memory=    352 kb  tot_iter=     140
+ output: c:\users\mahbod\desktop\part1\sample.mt0
+ sweep: tran tran14   begin, stop_t=  1.30E-07 #sweeps=**** cpu clock=  1.67E+00
+ tran: time= 1.4868E-08 tot_iter=     110 conv_iter=      43 cpu clock= 1.68E+00
+ tran: time= 2.7729E-08 tot_iter=     225 conv_iter=      84 cpu clock= 1.69E+00
+ tran: time= 4.0000E-08 tot_iter=     331 conv_iter=     123 cpu clock= 1.70E+00
+ tran: time= 5.2108E-08 tot_iter=     548 conv_iter=     202 cpu clock= 1.71E+00
+ tran: time= 6.5887E-08 tot_iter=     663 conv_iter=     246 cpu clock= 1.73E+00
+ tran: time= 8.0000E-08 tot_iter=     743 conv_iter=     277 cpu clock= 1.73E+00
+ tran: time= 9.1352E-08 tot_iter=     918 conv_iter=     341 cpu clock= 1.75E+00
+ tran: time= 1.0524E-07 tot_iter=    1001 conv_iter=     373 cpu clock= 1.76E+00
+ tran: time= 1.1772E-07 tot_iter=    1080 conv_iter=     403 cpu clock= 1.76E+00
+ tran: time= 1.3000E-07 tot_iter=    1198 conv_iter=     446 cpu clock= 1.78E+00
+ sweep: tran tran14   end,  cpu clock=  1.78E+00 memory=    352 kb
+ parameter: k1              =    2.64E+00
+ dcop: begin dcop,  cpu clock=  1.78E+00
+ dcop: end dcop,  cpu clock=  1.79E+00 memory=    352 kb  tot_iter=     150
+ output: c:\users\mahbod\desktop\part1\sample.mt0
+ sweep: tran tran15   begin, stop_t=  1.30E-07 #sweeps=**** cpu clock=  1.79E+00
+ tran: time= 1.4839E-08 tot_iter=     110 conv_iter=      43 cpu clock= 1.80E+00
+ tran: time= 2.7721E-08 tot_iter=     225 conv_iter=      84 cpu clock= 1.81E+00
+ tran: time= 4.0000E-08 tot_iter=     331 conv_iter=     123 cpu clock= 1.82E+00
+ tran: time= 5.2096E-08 tot_iter=     548 conv_iter=     202 cpu clock= 1.84E+00
+ tran: time= 6.5571E-08 tot_iter=     664 conv_iter=     246 cpu clock= 1.85E+00
+ tran: time= 8.0000E-08 tot_iter=     744 conv_iter=     277 cpu clock= 1.86E+00
+ tran: time= 9.1352E-08 tot_iter=     919 conv_iter=     341 cpu clock= 1.87E+00
+ tran: time= 1.0524E-07 tot_iter=    1002 conv_iter=     373 cpu clock= 1.88E+00
+ tran: time= 1.1771E-07 tot_iter=    1081 conv_iter=     403 cpu clock= 1.89E+00
+ tran: time= 1.3000E-07 tot_iter=    1199 conv_iter=     446 cpu clock= 1.90E+00
+ sweep: tran tran15   end,  cpu clock=  1.90E+00 memory=    352 kb
+ parameter: k1              =    2.65E+00
+ dcop: begin dcop,  cpu clock=  1.91E+00
+ dcop: end dcop,  cpu clock=  1.91E+00 memory=    352 kb  tot_iter=     160
+ output: c:\users\mahbod\desktop\part1\sample.mt0
+ sweep: tran tran16   begin, stop_t=  1.30E-07 #sweeps=**** cpu clock=  1.91E+00
+ tran: time= 1.4814E-08 tot_iter=     110 conv_iter=      43 cpu clock= 1.92E+00
+ tran: time= 2.7713E-08 tot_iter=     225 conv_iter=      84 cpu clock= 1.93E+00
+ tran: time= 4.0000E-08 tot_iter=     331 conv_iter=     123 cpu clock= 1.94E+00
+ tran: time= 5.2082E-08 tot_iter=     547 conv_iter=     202 cpu clock= 1.96E+00
+ tran: time= 6.6285E-08 tot_iter=     666 conv_iter=     247 cpu clock= 1.97E+00
+ tran: time= 8.0000E-08 tot_iter=     746 conv_iter=     278 cpu clock= 1.98E+00
+ tran: time= 9.1352E-08 tot_iter=     921 conv_iter=     342 cpu clock= 1.99E+00
+ tran: time= 1.0524E-07 tot_iter=    1004 conv_iter=     374 cpu clock= 2.00E+00
+ tran: time= 1.1771E-07 tot_iter=    1083 conv_iter=     404 cpu clock= 2.01E+00
+ tran: time= 1.3000E-07 tot_iter=    1201 conv_iter=     447 cpu clock= 2.02E+00
+ sweep: tran tran16   end,  cpu clock=  2.02E+00 memory=    352 kb
+ parameter: k1              =    2.66E+00
+ dcop: begin dcop,  cpu clock=  2.03E+00
+ dcop: end dcop,  cpu clock=  2.03E+00 memory=    352 kb  tot_iter=     170
+ output: c:\users\mahbod\desktop\part1\sample.mt0
+ sweep: tran tran17   begin, stop_t=  1.30E-07 #sweeps=**** cpu clock=  2.04E+00
+ tran: time= 1.4793E-08 tot_iter=     110 conv_iter=      43 cpu clock= 2.04E+00
+ tran: time= 2.7706E-08 tot_iter=     225 conv_iter=      84 cpu clock= 2.06E+00
+ tran: time= 4.0000E-08 tot_iter=     331 conv_iter=     123 cpu clock= 2.06E+00
+ tran: time= 5.2071E-08 tot_iter=     547 conv_iter=     202 cpu clock= 2.08E+00
+ tran: time= 6.5738E-08 tot_iter=     659 conv_iter=     244 cpu clock= 2.09E+00
+ tran: time= 8.0000E-08 tot_iter=     739 conv_iter=     275 cpu clock= 2.10E+00
+ tran: time= 9.1352E-08 tot_iter=     914 conv_iter=     339 cpu clock= 2.12E+00
+ tran: time= 1.0524E-07 tot_iter=     997 conv_iter=     371 cpu clock= 2.12E+00
+ tran: time= 1.1771E-07 tot_iter=    1076 conv_iter=     401 cpu clock= 2.13E+00
+ tran: time= 1.3000E-07 tot_iter=    1194 conv_iter=     444 cpu clock= 2.14E+00
+ sweep: tran tran17   end,  cpu clock=  2.15E+00 memory=    352 kb
+ parameter: k1              =    2.67E+00
+ dcop: begin dcop,  cpu clock=  2.15E+00
+ dcop: end dcop,  cpu clock=  2.15E+00 memory=    352 kb  tot_iter=     180
+ output: c:\users\mahbod\desktop\part1\sample.mt0
+ sweep: tran tran18   begin, stop_t=  1.30E-07 #sweeps=**** cpu clock=  2.16E+00
+ tran: time= 1.4775E-08 tot_iter=     110 conv_iter=      43 cpu clock= 2.17E+00
+ tran: time= 2.7699E-08 tot_iter=     225 conv_iter=      84 cpu clock= 2.18E+00
+ tran: time= 4.0000E-08 tot_iter=     331 conv_iter=     123 cpu clock= 2.19E+00
+ tran: time= 5.2054E-08 tot_iter=     547 conv_iter=     202 cpu clock= 2.20E+00
+ tran: time= 6.5451E-08 tot_iter=     664 conv_iter=     246 cpu clock= 2.21E+00
+ tran: time= 8.0000E-08 tot_iter=     744 conv_iter=     277 cpu clock= 2.22E+00
+ tran: time= 9.1352E-08 tot_iter=     919 conv_iter=     341 cpu clock= 2.24E+00
+ tran: time= 1.0524E-07 tot_iter=    1002 conv_iter=     373 cpu clock= 2.25E+00
+ tran: time= 1.1770E-07 tot_iter=    1081 conv_iter=     403 cpu clock= 2.25E+00
+ tran: time= 1.3000E-07 tot_iter=    1199 conv_iter=     446 cpu clock= 2.27E+00
+ sweep: tran tran18   end,  cpu clock=  2.27E+00 memory=    352 kb
+ parameter: k1              =    2.68E+00
+ dcop: begin dcop,  cpu clock=  2.27E+00
+ dcop: end dcop,  cpu clock=  2.28E+00 memory=    352 kb  tot_iter=     190
+ output: c:\users\mahbod\desktop\part1\sample.mt0
+ sweep: tran tran19   begin, stop_t=  1.30E-07 #sweeps=**** cpu clock=  2.28E+00
+ tran: time= 1.4756E-08 tot_iter=     110 conv_iter=      43 cpu clock= 2.29E+00
+ tran: time= 2.7693E-08 tot_iter=     225 conv_iter=      84 cpu clock= 2.30E+00
+ tran: time= 4.0000E-08 tot_iter=     331 conv_iter=     123 cpu clock= 2.31E+00
+ tran: time= 5.2037E-08 tot_iter=     547 conv_iter=     202 cpu clock= 2.33E+00
+ tran: time= 6.5449E-08 tot_iter=     664 conv_iter=     246 cpu clock= 2.34E+00
+ tran: time= 8.0000E-08 tot_iter=     744 conv_iter=     277 cpu clock= 2.34E+00
+ tran: time= 9.1352E-08 tot_iter=     919 conv_iter=     341 cpu clock= 2.36E+00
+ tran: time= 1.0524E-07 tot_iter=    1002 conv_iter=     373 cpu clock= 2.37E+00
+ tran: time= 1.1789E-07 tot_iter=    1080 conv_iter=     403 cpu clock= 2.38E+00
+ tran: time= 1.3000E-07 tot_iter=    1198 conv_iter=     446 cpu clock= 2.39E+00
+ sweep: tran tran19   end,  cpu clock=  2.39E+00 memory=    352 kb
+ parameter: k1              =    2.69E+00
+ dcop: begin dcop,  cpu clock=  2.40E+00
+ dcop: end dcop,  cpu clock=  2.40E+00 memory=    352 kb  tot_iter=     200
+ output: c:\users\mahbod\desktop\part1\sample.mt0
+ sweep: tran tran20   begin, stop_t=  1.30E-07 #sweeps=**** cpu clock=  2.40E+00
+ tran: time= 1.4741E-08 tot_iter=     110 conv_iter=      43 cpu clock= 2.41E+00
+ tran: time= 2.7689E-08 tot_iter=     225 conv_iter=      84 cpu clock= 2.42E+00
+ tran: time= 4.0000E-08 tot_iter=     331 conv_iter=     123 cpu clock= 2.43E+00
+ tran: time= 5.2021E-08 tot_iter=     547 conv_iter=     202 cpu clock= 2.45E+00
+ tran: time= 6.5449E-08 tot_iter=     664 conv_iter=     246 cpu clock= 2.46E+00
+ tran: time= 8.0000E-08 tot_iter=     744 conv_iter=     277 cpu clock= 2.47E+00
+ tran: time= 9.1352E-08 tot_iter=     919 conv_iter=     341 cpu clock= 2.48E+00
+ tran: time= 1.0524E-07 tot_iter=    1002 conv_iter=     373 cpu clock= 2.49E+00
+ tran: time= 1.1788E-07 tot_iter=    1080 conv_iter=     403 cpu clock= 2.50E+00
+ tran: time= 1.3000E-07 tot_iter=    1198 conv_iter=     446 cpu clock= 2.51E+00
+ sweep: tran tran20   end,  cpu clock=  2.51E+00 memory=    352 kb
+ parameter: k1              =    2.70E+00
+ dcop: begin dcop,  cpu clock=  2.52E+00
+ dcop: end dcop,  cpu clock=  2.52E+00 memory=    352 kb  tot_iter=     210
+ output: c:\users\mahbod\desktop\part1\sample.mt0
+ sweep: tran tran21   begin, stop_t=  1.30E-07 #sweeps=**** cpu clock=  2.52E+00
+ tran: time= 1.4733E-08 tot_iter=     110 conv_iter=      43 cpu clock= 2.53E+00
+ tran: time= 2.7687E-08 tot_iter=     225 conv_iter=      84 cpu clock= 2.54E+00
+ tran: time= 4.0000E-08 tot_iter=     331 conv_iter=     123 cpu clock= 2.55E+00
+ tran: time= 5.2007E-08 tot_iter=     547 conv_iter=     202 cpu clock= 2.57E+00
+ tran: time= 6.5453E-08 tot_iter=     664 conv_iter=     246 cpu clock= 2.58E+00
+ tran: time= 8.0000E-08 tot_iter=     744 conv_iter=     277 cpu clock= 2.59E+00
+ tran: time= 9.1352E-08 tot_iter=     919 conv_iter=     341 cpu clock= 2.60E+00
+ tran: time= 1.0523E-07 tot_iter=    1002 conv_iter=     373 cpu clock= 2.61E+00
+ tran: time= 1.1788E-07 tot_iter=    1080 conv_iter=     403 cpu clock= 2.62E+00
+ tran: time= 1.3000E-07 tot_iter=    1198 conv_iter=     446 cpu clock= 2.63E+00
+ sweep: tran tran21   end,  cpu clock=  2.63E+00 memory=    352 kb
+ sweep: parameter       parameter       1 end
+>info:         ***** hspice job concluded
+ Init: hspice initialization file: C:\synopsys\Hspice_A-2008.03\hspice.ini
+ lic: Release hspice token(s)

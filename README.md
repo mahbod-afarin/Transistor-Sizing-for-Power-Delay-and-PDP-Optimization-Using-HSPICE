@@ -59,7 +59,7 @@ We introduced coefficients `K1` to `K6`, each multiplying `Wmin`, and performed 
 ```spice
 .param K1=1 K2=1 K3=1 K4=1 K5=1 K6=1
 M1 Y A B VDD PMOS W='K1*Wmin' ...
-...
+```
 
 - Step-by-step sweeps were conducted per transistor.
 - For each parameter (**Power**, **Delay**, **PDP**), the sweep was zoomed in around the minimum.
